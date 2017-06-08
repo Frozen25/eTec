@@ -32,7 +32,7 @@ public class ArbolAVL{
 	//Guarda las rotaciones en un archivo
 	
 	//Inserta un elemento en el arbol
-	public void Insercion (AVLdata cita){
+	public void Insercion (AVLcita cita){
 		if ((!Miembro (cita,A))){
 			NodoAVL info = new NodoAVL(cita);
 			A=InsertarBalanceado(A,info);
@@ -187,7 +187,7 @@ public class ArbolAVL{
 		return N;
 	}
 	//Para verificar si esta el autor
-	boolean Miembro(AVLdata cita, NodoAVL R){
+	boolean Miembro(AVLcita cita, NodoAVL R){
 		NodoAVL Aux = R;
 		boolean miembro = false;
 		while (Aux != null){
@@ -258,7 +258,7 @@ public class ArbolAVL{
 	}
 	
 	//buscar elemento
-	public boolean find(AVLdata cit){
+	public boolean find(AVLcita cit){
         NodoAVL current = A;
         while(current!=null){
             if(current.cita==cit){
@@ -274,7 +274,7 @@ public class ArbolAVL{
         return false;
     }
 	
-    public AVLdata get(int num){
+    public AVLcita get(int num){
         NodoAVL current = A;
         while(current!=null){
             if(current.cita.numCita==num){
@@ -420,7 +420,7 @@ public class ArbolAVL{
                     String Numero = eElement.getElementsByTagName("Numero").item(0).getTextContent();
                     String monto = eElement.getElementsByTagName("MontoPagar").item(0).getTextContent();
 
-                    AVLdata tempCita =new AVLdata( Integer.parseInt(Numero), nombre, Float.valueOf(monto));
+                    AVLcita tempCita =new AVLcita( Integer.parseInt(Numero), nombre, Float.valueOf(monto));
                     
                     nuevoAVL.Insercion(tempCita);
 

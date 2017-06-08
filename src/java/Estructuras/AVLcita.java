@@ -9,13 +9,13 @@ package Estructuras;
  *
  * @author Alexis
  */
-public class AVLdata {
+public class AVLcita {
     public int numCita;
     public String paciente;
     public float pago =0 ;
     public String nume;
 	
-	public AVLdata(int num, String nombre)
+	public AVLcita(int num, String nombre)
 	{
 		this.numCita = num;
 		this.paciente = nombre;
@@ -23,7 +23,7 @@ public class AVLdata {
 		
 		nume = Integer.toString(num);
 	}
-        public AVLdata(int num, String nombre, float pago)
+        public AVLcita(int num, String nombre, float pago)
 	{
 		this.numCita = num;
 		this.paciente = nombre;

@@ -37,12 +37,12 @@ public class Test_Arboles {
     if (x==8)
     {
         ArbolAVL nuevo=new ArbolAVL();
-        AVLdata cit1 =new AVLdata(1, "Juan");
-        AVLdata cit2 =new AVLdata(2, "Pedro");
-        AVLdata cit3 =new AVLdata(3, "lucas");
-        AVLdata cit4 =new AVLdata(4, "ema");
-        AVLdata cit5 =new AVLdata(5, "lola");
-        AVLdata cit6 =new AVLdata(6, "paco");
+        AVLcita cit1 =new AVLcita(1, "Juan");
+        AVLcita cit2 =new AVLcita(2, "Pedro");
+        AVLcita cit3 =new AVLcita(3, "lucas");
+        AVLcita cit4 =new AVLcita(4, "ema");
+        AVLcita cit5 =new AVLcita(5, "lola");
+        AVLcita cit6 =new AVLcita(6, "paco");
         nuevo.Insercion(cit1);
         nuevo.Insercion(cit2);
         nuevo.Insercion(cit3);
@@ -97,7 +97,7 @@ public class Test_Arboles {
                     String Numero = eElement.getElementsByTagName("Numero").item(0).getTextContent();
                     String monto = eElement.getElementsByTagName("MontoPagar").item(0).getTextContent();
 
-                    AVLdata tempCita =new AVLdata( Integer.parseInt(Numero), nombre, Float.valueOf(monto));
+                    AVLcita tempCita =new AVLcita( Integer.parseInt(Numero), nombre, Float.valueOf(monto));
                     
                     nuevoAVL.Insercion(tempCita);
 
