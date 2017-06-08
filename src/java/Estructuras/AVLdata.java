@@ -1,13 +1,21 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Estructuras;
 
-public class cita {
-	
+/**
+ *
+ * @author Alexis
+ */
+public class AVLdata {
     public int numCita;
     public String paciente;
     public float pago =0 ;
     public String nume;
 	
-	public cita(int num, String nombre)
+	public AVLdata(int num, String nombre)
 	{
 		this.numCita = num;
 		this.paciente = nombre;
@@ -15,7 +23,7 @@ public class cita {
 		
 		nume = Integer.toString(num);
 	}
-        public cita(int num, String nombre, float pago)
+        public AVLdata(int num, String nombre, float pago)
 	{
 		this.numCita = num;
 		this.paciente = nombre;
@@ -36,6 +44,8 @@ public class cita {
         return Integer.toString(numCita)+">"+paciente+">"+Float.toString(pago);
     
     }
-	
-
+    
+    
+    
+    
 }

@@ -35,7 +35,7 @@ import org.w3c.dom.NodeList;
  */
 public class BTree<T extends Comparable<T>> {
     
-    private static final String direccion = "D:\\0-Tec\\Datos 1\\proyecto 2\\temp1data";
+    private static final String direccion = BinarySearchTree.direccion;
 
     private static BTree<Integer> tree = new BTree<Integer>();
 
@@ -768,6 +768,8 @@ public class BTree<T extends Comparable<T>> {
         
         private String email;
         
+        private String centro_distribucion;
+        
         private String nombre;
         
         private float money;
@@ -792,6 +794,7 @@ public class BTree<T extends Comparable<T>> {
                         this.email= " ";
                         this.Active = false;
                         this.money = 0;
+                        this.centro_distribucion = "";
                     }
                     if (parts.length>=2)
                     {
@@ -806,6 +809,10 @@ public class BTree<T extends Comparable<T>> {
                     if (parts.length>=4)
                     {
                         this.money = Float.valueOf(parts[3]);
+                    }
+                    if (parts.length>=5)
+                    {
+                        this.centro_distribucion = parts[4];
                     }
                 }
                 else

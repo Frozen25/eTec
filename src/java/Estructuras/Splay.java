@@ -27,7 +27,7 @@ public class Splay{
   public NodoSplay auxh;
   public boolean bandera = true;
   public String searchresult = "";
-  private static final String direccion = "D:\\0-Tec\\Datos 1\\proyecto 2\\temp1data";
+  private static final String direccion = BinarySearchTree.direccion;
   
   //Inserta un elemento en un arbol splay
   public NodoSplay Insertar (Doctor data){
