@@ -794,7 +794,7 @@ public class BTree<T extends Comparable<T>> {
                         this.email= " ";
                         this.Active = false;
                         this.money = 0;
-                        this.centro_distribucion = "";
+                        this.centro_distribucion = " ";
                     }
                     if (parts.length>=2)
                     {
@@ -859,31 +859,48 @@ public class BTree<T extends Comparable<T>> {
         {
             return this.information;
         }
-        public String getEmail()
-        {
-            return email;
-        }
+        
         public Boolean isActive()
         {
             return Active;
         }
+        
         public void setActive(boolean newActive)
         {
             Active = newActive;
         }
+        
+        public String getEmail()
+        {
+            return email;
+        }
+                
         public void changeEmail(String newEmail)
         {
             email = newEmail;
         }
-        public String getAll()
-        {
-            //System.out.println(nombre);
-            return nombre + ">" + email + ">" + Active+ ">" + Float.toString(money);
-        }
+
         public void addMoney(float monto)
         {
             this.money += monto;
         }
         
+        public Float getMoney(){
+            return money;
+        }
+        
+        public String getCentro(){
+            return centro_distribucion;
+        }
+        
+        public void setCentro(String nuevoc){
+            centro_distribucion = nuevoc;
+        }
+        
+        public String getAll()
+        {
+            return nombre + ">" + email + ">" + Active+ ">" + Float.toString(money)
+                    +">"+ centro_distribucion;
+        }
     }
 }
