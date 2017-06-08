@@ -25,13 +25,20 @@ public class Test_Arboles {
     {
         //arbol binario
     //abrir x=1  guardar x=2
-        //arbol B
-    //abrir x=3 guardar x=4 
         //arbol splay
     //abrir x=5 guardar x=6
         //arbol avl
     //abrir x=7 guardar x=8
     int x = 0;
+    
+
+//Clientes    
+    ClientesBST clientes = ClientesBST.loadClientBST();
+    clientes.displayPre();
+    clientes.getClient("Bryan").addMoney(132.455);
+    clientes.getClient("Bryan").changeEmail("correnuevo@nv");
+    clientes.getClient("Bryan").setActive(true);
+    clientes.save();
     
     
     if (x==8)
@@ -210,110 +217,6 @@ public class Test_Arboles {
         
     
     }
-    
-    
-    
-    if (x==4){
-        BTree btree = new BTree();
-
-
-        btree.insert("conejo");btree.insert("flor>correo2");
-        btree.insert("abeto>correo3");btree.insert("dedo>correo5");btree.insert("nube>correo6");
-        btree.insert("pato>correopato");btree.insert("carro");
-
-        btree.getMember("carro").changeEmail("correocarro@servidor.algo");
-        btree.getMember("carro").setActive(true);
-        btree.getMember("carro").addMoney((float) 135352.53);
-    
-
-        System.out.println("data:" + btree.getMember("carro").getData());
-
-
-        System.out.println("isActive:"+ btree.getMember("carro").isActive());
-        btree.getMember("carro").setActive(true);
-         System.out.println("newActive:"+ btree.getMember("carro").isActive());
-
-        System.out.println("email:" + btree.getMember("carro").getEmail() );
-        btree.getMember("carro").changeEmail("estecorreonuevo@algo.neet");
-        System.out.println(" Change email" + btree.getMember("carro").getEmail());
-
-        System.out.println("getall:" + btree.getMember("carro").getAll() );
-        
-        System.out.println("Preorder \n "+btree.preOrder());
-        System.out.println("Inorder \n "+btree.inOrder());
-        //System.out.println("Preorder \n "+btree.trasOrder());
-        btree.save();
-
-
-    }
-
-    if (x==3)
-    {
-        try {
-
-            File fXmlFile = new File(System.getProperty("user.dir") +"\\Clientes.xml");
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(fXmlFile);
-
-            doc.getDocumentElement().normalize();
-
-            //System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-
-            NodeList nList = doc.getElementsByTagName("Cliente");
-
-            //System.out.println("----------------------------");
-            
-            BTree newBTree = new BTree();
-            
-            for (int temp = 0; temp < nList.getLength(); temp++) {
-
-                org.w3c.dom.Node nNode = nList.item(temp);
-
-                //System.out.println("\nCurrent Element :" + nNode.getNodeName());
-
-
-                if (nNode.getNodeType() == org.w3c.dom.Node.ELEMENT_NODE) {
-
-                    Element eElement = (Element) nNode;
-
-                    
-                    String nombre = eElement.getElementsByTagName("Nombre").item(0).getTextContent();
-                    
-                    String correo = eElement.getElementsByTagName("Correo").item(0).getTextContent();
-                    if (correo.equals(""))
-                    {
-                        correo = " ";
-                    }
-                    String Active = eElement.getElementsByTagName("Activo").item(0).getTextContent();
-                    String dinero = eElement.getElementsByTagName("Dinero").item(0).getTextContent();
-                    
-
-                    newBTree.insert(nombre +">"+ correo +">"+ Active+">"+dinero);
-
-
-
-                    }
-            }
-            
-            //print tree
-            System.out.println(newBTree.preOrder());
-            
-            newBTree.save("name");
-            System.out.println("");
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        
-        
-    }
-    
-    
-    
-    
-    
     
     //Guardar este arbol
     if (x==2){
