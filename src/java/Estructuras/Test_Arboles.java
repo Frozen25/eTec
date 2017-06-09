@@ -39,7 +39,10 @@ public class Test_Arboles {
     clientes.getClient("Bryan").changeEmail("correnuevo@nv");
     clientes.getClient("Bryan").setActive(true);
     clientes.save();
-    
+//Admins
+    AdminBST ad = AdminBST.load_Adm();
+    ad.getMember("pedro").setCodigo(4);
+    ad.save_Adm();
     
     if (x==8)
     {

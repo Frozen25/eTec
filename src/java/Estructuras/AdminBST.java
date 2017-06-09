@@ -10,6 +10,7 @@ package Estructuras;
  * @author Alexis
  */
 
+import Estructuras.*;
 import java.io.File;
 import java.util.Stack;
 import javax.xml.parsers.DocumentBuilder;
@@ -28,17 +29,17 @@ import org.w3c.dom.NodeList;
 
 
 
-public class ClientesBST {
-    public   ClientesBSTNodo root;
+public class AdminBST {
+    public   AdminNodo root;
     private  String lookstack;
     private int contador = 0;
-    private final static  String direccion = BinarySearchTree.direccion;
-    public ClientesBST(){
+    protected final static  String direccion = "D:\\0-Tec\\Datos 1\\proyecto 3\\XML";
+    public AdminBST(){
             this.root = null;
     }
 
     public boolean isMember(String id){
-        ClientesBSTNodo current = root;
+        AdminNodo current = root;
         while(current!=null){
             if(current.getData().getName().equals(id)){
                     return true;
@@ -50,8 +51,8 @@ public class ClientesBST {
         }
         return false;
     }
-    public Cliente getClient(String id){
-        ClientesBSTNodo current = root;
+    public Admin_Dist getMember(String id){
+        AdminNodo current = root;
         while(current!=null){
             if(current.getData().getName().equals(id)){
                     return current.getData();
@@ -64,10 +65,10 @@ public class ClientesBST {
         return null;
     }
     
-    
+ 
     public boolean delete(String id){
-        ClientesBSTNodo parent = root;
-        ClientesBSTNodo current = root;
+        AdminNodo parent = root;
+        AdminNodo current = root;
         boolean isLeftChild = false;
         while(!(current.getData().getName().equals(id))){
             parent = current;
@@ -115,7 +116,7 @@ public class ClientesBST {
         }else if(current.left!=null && current.right!=null){
 
             //now we have found the minimum element in the right sub tree
-            ClientesBSTNodo successor = getSuccessor(current);
+            AdminNodo successor = getSuccessor(current);
             if(current==root){
                 root = successor;
             }else if(isLeftChild){
@@ -128,10 +129,10 @@ public class ClientesBST {
         return true;		
     }
 
-    public ClientesBSTNodo getSuccessor(ClientesBSTNodo deleleNode){
-        ClientesBSTNodo successsor =null;
-        ClientesBSTNodo successsorParent =null;
-        ClientesBSTNodo current = deleleNode.right;
+    public AdminNodo getSuccessor(AdminNodo deleleNode){
+        AdminNodo successsor =null;
+        AdminNodo successsorParent =null;
+        AdminNodo current = deleleNode.right;
         while(current!=null){
             successsorParent = successsor;
             successsor = current;
@@ -147,15 +148,14 @@ public class ClientesBST {
         System.out.println("deleted!");
         return successsor;
     }
-    
-    public void insert(Cliente id){
-        ClientesBSTNodo newNode = new ClientesBSTNodo(id);
+    public void insert(Admin_Dist id){
+        AdminNodo newNode = new AdminNodo(id);
         if(root==null){
             root = newNode;
             return;
         }
-        ClientesBSTNodo current = root;
-        ClientesBSTNodo parent = null;
+        AdminNodo current = root;
+        AdminNodo parent = null;
         while(true){
             parent = current;
             if(current.getData().getName().compareTo(id.getName())>0){				
@@ -173,12 +173,11 @@ public class ClientesBST {
             }
         }
     }
-    
     public void display(){
         display(root);      
     }
     
-    private void display(ClientesBSTNodo root){
+    private void display(AdminNodo root){
         if(root!=null){
             display(root.left);
             System.out.print(" " + root.getData().getName());
@@ -192,7 +191,7 @@ public class ClientesBST {
         return lookstack;
     }
     
-    private void displayIn(ClientesBSTNodo root){
+    private void displayIn(AdminNodo root){
         if(root!=null){
             displayIn(root.left);
             lookstack += root.getData().getName() +"_"+ root.getData().getInfo();
@@ -205,28 +204,28 @@ public class ClientesBST {
         displayPre(root);      
     }
     
-    private void displayPre(ClientesBSTNodo root){
+    private void displayPre(AdminNodo root){
         if(root!=null){
             System.out.print(" " + root.getData().getName());
             displayPre(root.left);
             displayPre(root.right);
         }
     }
-
+    
 
     
-    public void save()
+    public void save_Adm()
     {
-        save(root, "Clientes");
+        save_Adm(root, "Admin_Dist");
     }
-    public void save(String name)
+    public void save_Adm(String name)
     {
         name = name.replaceAll(" ", "");
-        save(root, name);
+        save_Adm(root, name);
     }
  
     // An iterative process to print preorder traversal of Binary tree
-    private void save(ClientesBSTNodo node, String fileName) {
+    private void save_Adm(AdminNodo node, String fileName) {
         try{
             // Base Case
             if (node == null) {
@@ -236,10 +235,10 @@ public class ClientesBST {
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             // root elements
             Document doc = docBuilder.newDocument();
-            Element rootElement = doc.createElement("Clientes");
+            Element rootElement = doc.createElement("Admin_Dist");
             doc.appendChild(rootElement);
             // Create an empty stack and push root to it
-            Stack<ClientesBSTNodo> nodeStack = new Stack<ClientesBSTNodo>();
+            Stack<AdminNodo> nodeStack = new Stack<AdminNodo>();
             nodeStack.push(root);
             /* Pop all items one by one. Do following for every popped item
              a) print it
@@ -248,9 +247,10 @@ public class ClientesBST {
              Note that right child is pushed first so that left is processed first */
             while (nodeStack.empty() == false) {
                 // Pop the top item from stack and print it
-                ClientesBSTNodo mynode = nodeStack.peek();
-                //System.out.print(mynode.getName() + " ");
-                Element element = doc.createElement("Cliente");
+                AdminNodo mynode = nodeStack.peek();
+                
+                
+                Element element = doc.createElement("Adm_Dis");
                 rootElement.appendChild(element);
                 // set attribute to staff element
 		Attr attr = doc.createAttribute("id");
@@ -261,25 +261,11 @@ public class ClientesBST {
 		at1.appendChild(doc.createTextNode(mynode.getData().getName()));
 		element.appendChild(at1);
                 
-                Element at2 = doc.createElement("Email");
-		at2.appendChild(doc.createTextNode(mynode.getData().getEmail()));
+                Element at2 = doc.createElement("Codigo");
+                String code = Integer.toString(mynode.getData().getCodigo());
+		at2.appendChild(doc.createTextNode(code));
 		element.appendChild(at2);
-                 
-                Element at3 = doc.createElement("Active");
-                String active = Boolean.toString(mynode.getData().isActive());
-		at3.appendChild(doc.createTextNode(active));
-		element.appendChild(at3);
-                
-                Element at4 = doc.createElement("Money");
-                String money =Float.toString((float) mynode.getData().getMoney());
-		at4.appendChild(doc.createTextNode(money));
-		element.appendChild(at4);
-                
-                Element at5 = doc.createElement("Centro");
-		at5.appendChild(doc.createTextNode(mynode.getData().getCentro()));
-		element.appendChild(at5);
-                
-                
+
                 nodeStack.pop();
                 // Push right and left children of the popped node to stack
                 if (mynode.right != null) {
@@ -304,9 +290,9 @@ public class ClientesBST {
       }
     }
     
-    public static ClientesBST loadClientBST(){
+    public static AdminBST load_Adm(){
         try {    
-            File fXmlFile = new File(direccion + "\\Clientes.xml");
+            File fXmlFile = new File(direccion + "\\Admin_Dist.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
@@ -315,11 +301,11 @@ public class ClientesBST {
 
             //System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 
-            NodeList nList = doc.getElementsByTagName("Cliente");
+            NodeList nList = doc.getElementsByTagName("Adm_Dis");
 
             //System.out.println("----------------------------");
             
-            ClientesBST newBST = new ClientesBST();
+            AdminBST newBST = new AdminBST();
             
             for (int temp = 0; temp < nList.getLength(); temp++) {
 
@@ -329,21 +315,11 @@ public class ClientesBST {
 
                     Element eElement = (Element) nNode;
                     String nombre = eElement.getAttribute("id");
-                    String email = eElement.getElementsByTagName("Email").item(0).getTextContent();
-                    String active = eElement.getElementsByTagName("Active").item(0).getTextContent();
-                    Boolean act = Boolean.valueOf(active);
-                    String money = eElement.getElementsByTagName("Money").item(0).getTextContent();
-                    double value;
-                    if (money.equals("0.0") || money.equals("") || money.equals("0")){
-                        value = 0;
-                    }
-                    else{
-                        value = Double.parseDouble(money);
-                    }
-                    String centro = eElement.getElementsByTagName("Centro").item(0).getTextContent();
+                    String codigo  = eElement.getElementsByTagName("Codigo").item(0).getTextContent();
+                    int code = Integer.valueOf(codigo);
                     
-                    Cliente ClientTemp = new Cliente( nombre, email, act, value, centro );
-                    newBST.insert(ClientTemp);
+                    Admin_Dist adm = new Admin_Dist( nombre, code);
+                    newBST.insert(adm);
                     }
             }
             
