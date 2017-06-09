@@ -271,7 +271,7 @@ public class ClientesBST {
 		element.appendChild(at3);
                 
                 Element at4 = doc.createElement("Money");
-                String money =Float.toString((float) mynode.getData().getMoney());
+                String money =Double.toString((double) mynode.getData().getMoney());
 		at4.appendChild(doc.createTextNode(money));
 		element.appendChild(at4);
                 

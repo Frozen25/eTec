@@ -30,7 +30,8 @@ public class Test_Arboles {
         //arbol avl
     //abrir x=7 guardar x=8
     int x = 0;
-    
+    double u = 0;
+        System.out.println();
 
 //Clientes    
     ClientesBST clientes = ClientesBST.loadClientBST();
