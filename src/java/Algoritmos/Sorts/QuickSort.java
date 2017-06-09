@@ -1,8 +1,6 @@
 package Algoritmos.Sorts;
 import java.util.ArrayList;
-import org.tec.algo.search.*;
-import org.tec.algo.sort.*;
-import org.tec.datastructures.*;
+import Estructuras.*;
 
 public class QuickSort {
     
@@ -83,46 +81,7 @@ public class QuickSort {
 		a[j] = x;
     }
     
-    /// Para LinkedList 
-   //*********************************************************************************************************************************
-    ///////////////******************************************************************************************************
-    public static <T extends Comparable<T>> void QuickSortLinkedList(LinkedList<T> a) {
-    	Node<T> n = a.getHead();
-    	quicksortLin(a, 0, a.getSize()-1, n);
-    }
-
-    private static <T extends Comparable<T>> void quicksortLin (LinkedList<T> a, int i, int j, Node<T> n) {
-		if (i<j) {
-		    int l = partitionLin(a,i,j, n);
-		    quicksortLin(a, i, l, n);
-		    quicksortLin(a, l+1, j, n);
-		}
-    }
-
-    private static <T extends Comparable<T>> int partitionLin(LinkedList<T> a, int p, int q, Node<T> n) {
-		T x = a.getAt(p).getData();
-		int m = (p+q)/2;
-		if ((a.getAt(p).getData().compareTo(a.getAt(m).getData())<=0 && (a.getAt(m).getData().compareTo(a.getAt(q).getData())<=0) || a.getAt(q).getData().compareTo(a.getAt(m).getData())<=0 && a.getAt(m).getData().compareTo(a.getAt(p).getData())<=0))
-		    x = a.getAt(m).getData();
-		if ((a.getAt(p).getData().compareTo(a.getAt(q).getData())<=0 && a.getAt(q).getData().compareTo(a.getAt(m).getData())<=0) || (a.getAt(m).getData().compareTo(a.getAt(q).getData())<=0 && a.getAt(q).getData().compareTo(a.getAt(p).getData())<=0))
-		    x = a.getAt(q).getData();
-		int i = p-1;
-		int j = q+1;
-		while (true) {
-		    do i++; while (!(i>q ||a.getAt(i).getData().compareTo(x)>=0));
-		    do j--; while (!(j<p || a.getAt(j).getData().compareTo(x)<=0));
-		    if (i<j) swapLin(a, i, j, n);
-		    else return j;
-		}
-    }
-
-    private static <T extends Comparable<T>> void swapLin (LinkedList<T> a, int i, int j, Node<T> n) {
-		T x;
-		x = a.getAt(i).getData();
-		a.getAt(i).setData(a.getAt(j).getData());
-		a.getAt(j).setData(x);		
-    }
-    
+   
   /// Para LinkedList 
     //*********************************************************************************************************************************
      ///////////////******************************************************************************************************

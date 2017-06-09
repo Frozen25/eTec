@@ -1,8 +1,6 @@
 package Algoritmos.Sorts;
 import java.util.ArrayList;
-import org.tec.algo.search.*;
-import org.tec.algo.sort.*;
-import org.tec.datastructures.*;
+import Estructuras.*;
 
 public class SelectionSort<E> {
 	
@@ -39,12 +37,7 @@ public class SelectionSort<E> {
 	        }
 	 }
 	 
-	 //para linkedlist
-	 public static <E extends Comparable<E>> void SelectionSortLinkedListList(LinkedList<E> list){
-		 Node<E> head = list.getHead();
-		 selectionLinkedList(head);
-	 }
-	 
+	
 	 public static <E extends Comparable<E>> void SelectionSortDoubleLinkedListList(DoubleLinkedList<E> list){
 		 Node<E> head = list.getHead();
 		 selectionLinkedList(head);

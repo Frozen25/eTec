@@ -1,9 +1,7 @@
 package Algoritmos.Sorts;
 
 import java.lang.*;
-import org.tec.algo.search.*;
-import org.tec.algo.sort.*;
-import org.tec.datastructures.*;
+import Estructuras.*;
 import java.util.ArrayList;
 
 public class MergeSort<T> {
@@ -93,49 +91,7 @@ public class MergeSort<T> {
     	}
         }
         
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////para linkedList////////////////////////////////////////
-        public static <T extends Comparable<T>> void MergeSortLinkedList(LinkedList<T> list) {
-        	Node<T> n = list.getHead();
-        	mergesortLinked(list, 0, list.getSize()-1, n);
-            }
-            
-        	private static <T extends Comparable<T>> void mergesortLinked (LinkedList<T> a, int i, int j, Node<T> n) {
-        	if (j-i < 1) return;
-        	int mid = (i+j)/2;
-        	mergesortLinked(a, i, mid,n);
-        	mergesortLinked(a, mid+1, j, n);
-        	mergeLinked(a, i, mid, j, n);
-            }
-
-            // Merge method
-            // Here we need to allocate a new array, but Java does not allow allocating arrays of a generic type
-            // As a work-around we allocate an array of type Object[] the use type casting
-            // This would usually generate a warning, which is suppressed
-            private static <T extends Comparable<T>> void  mergeLinked(LinkedList<T> a, int p, int mid, int q, Node<T> n) {
-
-        	Object[] tmp = new Object[q-p+1]; 
-        	int i = p;
-        	int j = mid+1;
-        	int k = 0;
-        	while (i <= mid && j <= q) {
-        	    if(a.getAt(i).getData().compareTo(a.getAt(j).getData())<=0)
-        		tmp[k] = a.getAt(i++).getData();
-        	    else
-        		tmp[k] = a.getAt(j++).getData();
-        	    k++;
-        	}
-        	if (i <= mid && j > q) {
-        	    while (i <= mid) 
-        		tmp[k++] = a.getAt(i++).getData();
-        	} else {
-        	    while (j <= q)
-        		tmp[k++] = a.getAt(j++).getData();
-        	}
-        	for (k = 0; k < tmp.length; k++) {
-        		a.getAt(k+p).setData((T)tmp[k]);
-            }
-            }   
+      
             
             //////////////////////////////////////////
             ///////////////////////////////////////////

@@ -2,9 +2,7 @@ package Algoritmos.Sorts;
 
 import java.util.ArrayList;
 
-import org.tec.algo.search.*;
-import org.tec.algo.sort.*;
-import org.tec.datastructures.*;
+import Estructuras.*;
 
 /**
  * 
@@ -45,10 +43,7 @@ public class BubbleSort<E> {
 	  }
 	
 /// para listas enlazadas
-	public static <T extends Comparable<T>>void bubbleLinkedList(LinkedList<T> list){
-		Node<T> head = list.getHead();
-		bubbleLinked(head);
-	}
+
 	
 	public static <T extends Comparable<T>>void bubbleDoubleLinkedList(DoubleLinkedList<T> list){
 		Node<T> head = list.getHead();

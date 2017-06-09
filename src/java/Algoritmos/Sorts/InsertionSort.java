@@ -1,9 +1,6 @@
 package Algoritmos.Sorts;
 import java.util.ArrayList;
-import org.tec.algo.search.*;
-import org.tec.algo.sort.*;
-import org.tec.datastructures.*;
-
+import Estructuras.*;
 public class InsertionSort<E> {
 
 	///Para arrays
@@ -36,11 +33,6 @@ public class InsertionSort<E> {
 		    }
 	}
 	
-	///para linkedlist
-	public static <E extends Comparable<E>> void insertionLinkedList(LinkedList<E> list){
-		Node<E> nodo = list.getHead();
-		insertionLinked(nodo);
-	}
 	
 	public static <E extends Comparable<E>> void insertionDoubleLinkedList(DoubleLinkedList<E> list){
 		Node<E> nodo = list.getHead();

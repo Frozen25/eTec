@@ -1,8 +1,6 @@
 package Algoritmos.Sorts;
 import java.util.ArrayList;
-import org.tec.algo.search.*;
-import org.tec.algo.sort.*;
-import org.tec.datastructures.*;
+import Estructuras.*;
 
 public class RadixSort {
 	
@@ -57,31 +55,7 @@ public class RadixSort {
         }
     }
 	
-	///////////////////LinkedList
-	public static void radixLinkedList(LinkedList a)
-    {
-        int i, m = (int) a.getAt(0).getData(), exp = 1, n = a.getSize();
-        int[] b = new int[10];
-        
-        for (i = 1; i < n; i++)
-            if ((int) a.getAt(i).getData() > m)
-                m = (int) a.getAt(i).getData();
-        
-        while (m / exp > 0)
-        {
-            int[] bucket = new int[10];
- 
-            for (i = 0; i < n; i++)
-                bucket[((int)a.getAt(i).getData() / exp) % 10]++;
-            for (i = 1; i < 10; i++)
-                bucket[i] += bucket[i - 1];
-            for (i = n - 1; i >= 0; i--)
-                b[--bucket[((int)a.getAt(i).getData() / exp) % 10]] = (int) a.getAt(i).getData();
-            for (i = 0; i < n; i++)
-                a.getAt(i).setData(b[i]);		
-            exp *= 10;        
-        }
-    }    
+	
     ///////////////////////////doubleLinkedList
 	public static void radixDoubleLinkedList(DoubleLinkedList a)
     {
