@@ -1,4 +1,4 @@
-package Search;
+package Algoritmos.Search;
 
 import org.tec.datastructures.*;
 import java.util.Scanner;

@@ -5,8 +5,8 @@
  */
 package Services;
 
-import Estructuras.AdminBST;
-import Estructuras.Admin_Dist;
+import Estructuras.arboles.AdminBST;
+import Estructuras.arboles.Admin_Dist;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

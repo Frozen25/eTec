@@ -1,4 +1,4 @@
-package sorts;
+package Algoritmos.Sorts;
 import java.util.ArrayList;
 import org.tec.algo.search.*;
 import org.tec.algo.sort.*;

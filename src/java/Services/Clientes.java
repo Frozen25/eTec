@@ -5,8 +5,8 @@
  */
 package Services;
 
-import Estructuras.Cliente;
-import Estructuras.ClientesBST;
+import Estructuras.arboles.Cliente;
+import Estructuras.arboles.ClientesBST;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
