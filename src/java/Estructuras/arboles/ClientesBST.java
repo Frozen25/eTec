@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Estructuras;
+package Estructuras.arboles;
 
 /**
  *
  * @author Alexis
  */
 
+import Estructuras.BinarySearchTree;
 import java.io.File;
 import java.util.Stack;
 import javax.xml.parsers.DocumentBuilder;

@@ -6,6 +6,8 @@
 
 
 package Estructuras;
+import Estructuras.arboles.AdminBST;
+import Estructuras.arboles.ClientesBST;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

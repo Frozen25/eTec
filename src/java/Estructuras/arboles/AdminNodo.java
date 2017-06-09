@@ -3,26 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Estructuras;
+package Estructuras.arboles;
+
+import Estructuras.*;
 
 /**
  *
  * @author Alexis
  */
-public class ClientesBSTNodo {
+public class AdminNodo {
 
-    private Cliente data;
-    public ClientesBSTNodo left;
-    public ClientesBSTNodo right;	
+    private Admin_Dist data;
+    public AdminNodo left;
+    public AdminNodo right;	
     
-    public ClientesBSTNodo(Cliente data){
+    public AdminNodo(Admin_Dist data){
         this.data = data;
         left = null;
         right = null;
     }
 
-    
-    public Cliente getData()
+    public Admin_Dist getData()
     {
         return data;
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Estructuras;
+package Estructuras.arboles;
 
 /**
  *
@@ -33,7 +33,7 @@ public class AdminBST {
     public   AdminNodo root;
     private  String lookstack;
     private int contador = 0;
-    protected final static  String direccion = "D:\\0-Tec\\Datos 1\\proyecto 3\\XML";
+    protected final static  String direccion = BinarySearchTree.direccion;
     public AdminBST(){
             this.root = null;
     }

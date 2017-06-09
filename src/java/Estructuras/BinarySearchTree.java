@@ -32,7 +32,7 @@ public class BinarySearchTree {
     public   NodoArbolBinario root;
     private  String lookstack;
     private int contador = 0;
-    protected final static  String direccion = "D:\\0-Tec\\Datos 1\\proyecto 3\\XML";
+    public final static  String direccion = "D:\\0-Tec\\Datos 1\\proyecto 3\\XML";
     public BinarySearchTree(){
             this.root = null;
     }
