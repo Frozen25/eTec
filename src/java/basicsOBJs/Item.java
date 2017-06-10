@@ -10,6 +10,10 @@ public class Item {
     
  
     public boolean inStock(){return stock>0;}
+
+    public boolean isEntregado() {
+        return entregado;
+    }
     
  
       
