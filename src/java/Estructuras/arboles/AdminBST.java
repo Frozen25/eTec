@@ -265,6 +265,10 @@ public class AdminBST {
                 String code = Integer.toString(mynode.getData().getCodigo());
 		at2.appendChild(doc.createTextNode(code));
 		element.appendChild(at2);
+                
+                Element at3 = doc.createElement("Password");
+		at3.appendChild(doc.createTextNode(mynode.getData().getPass()));
+		element.appendChild(at3);
 
                 nodeStack.pop();
                 // Push right and left children of the popped node to stack
@@ -317,8 +321,9 @@ public class AdminBST {
                     String nombre = eElement.getAttribute("id");
                     String codigo  = eElement.getElementsByTagName("Codigo").item(0).getTextContent();
                     int code = Integer.valueOf(codigo);
+                    String pass  = eElement.getElementsByTagName("Password").item(0).getTextContent();
                     
-                    Admin_Dist adm = new Admin_Dist( nombre, code);
+                    Admin_Dist adm = new Admin_Dist( nombre, code, pass);
                     newBST.insert(adm);
                     }
             }

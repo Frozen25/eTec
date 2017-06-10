@@ -13,6 +13,10 @@ public class Pruebas_arboles {
     public static void main (String[] args)
     
     {
+        
+        
+        
+        /*
     //Clientes    
     ClientesBST clientes = ClientesBST.loadClientBST();
     clientes.displayPre();
@@ -20,10 +24,23 @@ public class Pruebas_arboles {
     clientes.getClient("Bryan").changeEmail("correnuevo@nv");
     clientes.getClient("Bryan").setActive(true);
     clientes.save();
+    
+    
+    
 //Admins
     AdminBST ad = AdminBST.load_Adm();
     ad.getMember("pedro").setCodigo(4);
     ad.save_Adm();
-    
+    */
+    AdminBST ad = new AdminBST();
+    Admin_Dist a1 = new Admin_Dist("brayan", -1, "1234");
+    ad.insert(a1);
+    Admin_Dist a2 = new Admin_Dist("emmanuelle", 4, "ac34");
+    ad.insert(a2);
+    Admin_Dist a3 = new Admin_Dist("brayan", -1, "41c2");
+    ad.insert(a3);
+    ad.save_Adm();
+        
+        
     }
 }

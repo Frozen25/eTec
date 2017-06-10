@@ -22,10 +22,10 @@ public class Administradores {
      * This is a sample web service operation
      */
    @WebMethod(operationName = "addAdmin")
-    public String add( String nombre, int codigo) {
+    public String add( String nombre, int codigo, String pass) {
         try{
             AdminBST newC = AdminBST.load_Adm();
-            Admin_Dist id = new Admin_Dist(nombre, codigo);
+            Admin_Dist id = new Admin_Dist(nombre, codigo, pass);
             newC.insert(id);
             return "Success";
         }catch (Exception e) {

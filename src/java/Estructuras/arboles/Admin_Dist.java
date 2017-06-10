@@ -11,11 +11,13 @@ package Estructuras.arboles;
  */
 public class Admin_Dist {
     private String name;
+    private String pass;
     private int codigo;
     
-    public Admin_Dist(String nombre, int codigo){
+    public Admin_Dist(String nombre, int codigo, String clave){
         this.name = nombre;
         this.codigo = codigo;
+        this.pass = clave;
     }
     
     public String getName(){
@@ -26,6 +28,12 @@ public class Admin_Dist {
     }
     public int getCodigo(){
         return codigo;
+    }
+    public void setPass(String newClave){
+        this.pass = newClave;
+    }
+    public String getPass(){
+        return pass;
     }
     
     public String getInfo(){
