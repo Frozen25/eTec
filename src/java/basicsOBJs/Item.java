@@ -17,8 +17,10 @@ public class Item {
 
     
  
+
      public Item(String nombre, String imagen, double Precio, int stock)
      {
+
         this.nombre = nombre;
         this.imagen = imagen;
         this.stock = stock;
