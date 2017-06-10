@@ -6,11 +6,11 @@ public class Item {
     private double Precio;
     private int stock;
     private boolean inStock;
- 
+    private boolean entregado;
     
  
     public boolean inStock(){return stock>0;}
-    private boolean entregado;
+    
  
       
  
@@ -20,6 +20,38 @@ public class Item {
         this.imagen = imagen;
         this.stock = stock;
         this.inStock = false;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public double getPrecio() {
+        return Precio;
+    }
+
+    public void setPrecio(double Precio) {
+        this.Precio = Precio;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
  
      
