@@ -19,7 +19,6 @@ public class Item {
         this.nombre = nombre;
         this.imagen = imagen;
         this.stock = stock;
-        this.entregado = false;
         this.inStock = false;
     }
  

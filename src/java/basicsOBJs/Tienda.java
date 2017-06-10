@@ -16,6 +16,7 @@ public class Tienda {
     private DoubleLinkedList productos;
     private Item produc;
     private String nombre;
+    private int numero;
     
     public Tienda(String nombre, DoubleLinkedList productos, Item produc)
     {
@@ -23,10 +24,24 @@ public class Tienda {
         this.produc = produc;
         this.productos = productos;
     }
+    public Tienda(String nombre, DoubleLinkedList productos, Item produc, int numero)
+    {
+        this.nombre = nombre;
+        this.produc = produc;
+        this.productos = productos;
+        this.numero = numero;
+    }
     
     public void anadir(Item produc)
     {
         productos.addLast(produc);
+    }
+    public void setNumero(int   newnum )
+    {
+        numero = newnum;
+    }
+    public int getNumero(){
+        return numero;
     }
     
     
