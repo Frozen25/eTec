@@ -14,11 +14,10 @@ public class Item {
     public boolean isEntregado() {
         return entregado;
     }
+
     
  
-      
- 
-     public Item(String nombre, String imagen, double Precio, int stock, boolean entregado, boolean inStock)
+     public Item(String nombre, String imagen, double Precio, int stock)
      {
         this.nombre = nombre;
         this.imagen = imagen;
