@@ -10,7 +10,7 @@ import Estructuras.arboles.ClientesBST;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import javax.ws.rs.Path;
+//import javax.ws.rs.Path;
 
 /**
  *
