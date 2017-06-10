@@ -37,7 +37,7 @@ public class Pruebas_arboles {
     ad.insert(a1);
     Admin_Dist a2 = new Admin_Dist("emmanuelle", 4, "ac34");
     ad.insert(a2);
-    Admin_Dist a3 = new Admin_Dist("brayan", -1, "41c2");
+    Admin_Dist a3 = new Admin_Dist("elbrayan", -1, "41c2");
     ad.insert(a3);
     ad.save_Adm();
         
