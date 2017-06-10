@@ -5,10 +5,30 @@
  */
 package basicsOBJs;
 
+import Estructuras.DoubleLinkedList;
+
 /**
  *
  * @author Bryan
  */
 public class Tienda {
+    
+    private DoubleLinkedList productos;
+    private Item produc;
+    private String nombre;
+    
+    public Tienda(String nombre, DoubleLinkedList productos, Item produc)
+    {
+        this.nombre = nombre;
+        this.produc = produc;
+        this.productos = productos;
+    }
+    
+    public void anadir(Item produc)
+    {
+        productos.addLast(produc);
+    }
+    
+    
     
 }
