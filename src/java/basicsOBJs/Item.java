@@ -7,8 +7,8 @@ public class Item {
     private int stock;
     private boolean inStock;
     private boolean entregado;
-    
- 
+
+  
     public boolean inStock(){return stock>0;}
 
     public boolean isEntregado() {
@@ -20,7 +20,6 @@ public class Item {
 
      public Item(String nombre, String imagen, double Precio, int stock)
      {
-
         this.nombre = nombre;
         this.imagen = imagen;
         this.stock = stock;
@@ -66,6 +65,8 @@ public class Item {
          entregado = true;
  
      }
+
+
 
    
 }
