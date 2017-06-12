@@ -159,3 +159,19 @@ public class DoubleLinkedList<T>
     }
   
 }
+    
+    
+    //=====================================Acciones de guardar y cargar XML=================================================
+    public static DoubleLinkedList load(){
+        return null;
+    
+    
+    } 
+    
+    public static void save(){
+        
+        return ;
+    } 
+		
+    
+}

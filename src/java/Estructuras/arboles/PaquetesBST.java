@@ -267,13 +267,23 @@ public class PaquetesBST {
                 
                 Element atn = doc.createElement("Items");
                 DoubleLinkedList lista = mynode.getData().getlist();
-                Node current = lista.getHead();
-                String it = "";
-                while (current!=null){
-                    String name = (String)current.getData();
-                    it += name+">";
-                    current = current.getNext();  
+                Node current;
+                String it;  
+                try{
+                    current = lista.getHead();
+                    it = "";
+                    while (current!=null){
+                        String name = (String)current.getData();
+                        it += name+">";
+                        current = current.getNext();  
+                    }
+                }catch (Exception e){
+                    it = " ";
                 }
+                
+                    
+                
+                
                 atn.appendChild(doc.createTextNode(it));
                 element.appendChild(atn);
                 
@@ -343,7 +353,8 @@ public class PaquetesBST {
                     Paquete paqtemp = new Paquete(Integer.parseInt(eElement.getAttribute("id")) , Integer.parseInt(lugar));
                     
                     String estad = eElement.getElementsByTagName("Estado").item(0).getTextContent();
-                    paqtemp.setEstado(Boolean.getBoolean(estad));
+                    
+                    paqtemp.setEstado(Boolean.valueOf(estad));
                     
                     
  
