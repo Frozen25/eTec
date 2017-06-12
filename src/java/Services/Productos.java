@@ -27,10 +27,26 @@ public class Productos {
     {
          try{
         Item it= new Item(nombre,imagen,Precio,stock);
-        ItemsDoubleLinkedList listaProducto = new ItemsDoubleLinkedList();
+        ItemsDoubleLinkedList listaProducto =  ItemsDoubleLinkedList.loadItems();
         listaProducto.addLast(it);
         listaProducto.saveItem();
         return "Success ADD item";
+         }catch (Exception e) {
+            e.printStackTrace();
+            return "Failed addItem";
+        }
+         
+    }
+    
+    @WebMethod(operationName = "remove_item")
+    public String remove( String nombre) 
+    {
+         try{
+        
+        ItemsDoubleLinkedList listaProducto =  ItemsDoubleLinkedList.loadItems();
+        
+        listaProducto.saveItem();
+        return "Success remove item";
          }catch (Exception e) {
             e.printStackTrace();
             return "Failed addItem";
