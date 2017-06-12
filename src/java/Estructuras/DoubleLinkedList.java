@@ -147,13 +147,13 @@ public class DoubleLinkedList<T>
     
     
     //=====================================Acciones de guardar y cargar XML=================================================
-    public static load(){
-    
+    public static DoubleLinkedList load(){
+        return null;
     
     
     } 
     
-    public static save(){
+    public static void save(){
         
         return ;
     } 
