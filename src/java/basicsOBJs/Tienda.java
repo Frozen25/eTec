@@ -6,6 +6,7 @@
 package basicsOBJs;
 
 import Estructuras.DoubleLinkedList;
+import Estructuras.ItemsDoubleLinkedList;
 
 /**
  *
@@ -13,18 +14,18 @@ import Estructuras.DoubleLinkedList;
  */
 public class Tienda {
     
-    private DoubleLinkedList productos;
+    private ItemsDoubleLinkedList productos;
     private Item produc;
     private String nombre;
     private int numero;
     
-    public Tienda(String nombre, DoubleLinkedList productos, Item produc)
+    public Tienda(String nombre, ItemsDoubleLinkedList productos, Item produc)
     {
         this.nombre = nombre;
         this.produc = produc;
         this.productos = productos;
     }
-    public Tienda(String nombre, DoubleLinkedList productos, Item produc, int numero)
+    public Tienda(String nombre, ItemsDoubleLinkedList productos, Item produc, int numero)
     {
         this.nombre = nombre;
         this.produc = produc;

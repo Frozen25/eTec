@@ -6,6 +6,7 @@
 package Services;
 
 import Estructuras.DoubleLinkedList;
+import Estructuras.ItemsDoubleLinkedList;
 import basicsOBJs.Item;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -26,8 +27,9 @@ public class Productos {
     {
          try{
         Item it= new Item(nombre,imagen,Precio,stock);
-        DoubleLinkedList<Item> listaProducto= new DoubleLinkedList<> ();
+        ItemsDoubleLinkedList listaProducto = new ItemsDoubleLinkedList();
         listaProducto.addLast(it);
+        listaProducto.saveItem();
         return "Success ADD item";
          }catch (Exception e) {
             e.printStackTrace();

@@ -27,12 +27,12 @@ import org.w3c.dom.Element;
  * @author Gabriel
  */
 public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
-    public void savePaq()
+    public void saveItem()
     {
         Node n1 =this.getHead();
-        savePaq(n1, "Items");
+        saveItem(n1, "Items");
     }
-     private void savePaq(Node<Item> n1,String FileName)
+     private void saveItem(Node<Item> n1,String FileName)
     {
          try {
 
