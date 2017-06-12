@@ -4,6 +4,19 @@
     <service name="Example">
       <implementation-class>Services.Example</implementation-class>
     </service>
+    <service name="Clientes">
+      <implementation-class>Services.Clientes</implementation-class>
+    </service>
+    <service name="Administradores">
+      <implementation-class>Services.Administradores</implementation-class>
+    </service>
+    <service name="Productos">
+      <implementation-class>Services.Productos</implementation-class>
+    </service>
+    <service name="Paquetes">
+      <implementation-class>Services.Paquetes</implementation-class>
+    </service>
   </services>
   <clients/>
+  <jsr109>true</jsr109>
 </jax-ws>
