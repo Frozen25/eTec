@@ -3,7 +3,7 @@ package basicsOBJs;
 public class Item {
  
     private String nombre,imagen;
-    private double Precio;
+    private double precio;
     private int stock;
     private boolean inStock;
     private boolean entregado;
@@ -22,6 +22,7 @@ public class Item {
      {
         this.nombre = nombre;
         this.imagen = imagen;
+        this.precio=Precio;
         this.stock = stock;
         this.inStock = false;
     }
@@ -43,13 +44,17 @@ public class Item {
     }
 
     public double getPrecio() {
-        return Precio;
+        return precio;
     }
 
     public void setPrecio(double Precio) {
-        this.Precio = Precio;
+        this.precio = Precio;
     }
 
+    
+    
+    
+    
     public int getStock() {
         return stock;
     }
