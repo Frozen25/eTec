@@ -5,6 +5,7 @@
  */
 package Services;
 
+import Algoritmos.Search.Binary_Search;
 import Estructuras.DoubleLinkedList;
 import Estructuras.ItemsDoubleLinkedList;
 import basicsOBJs.Item;
@@ -39,12 +40,28 @@ public class Productos {
     }
     
     @WebMethod(operationName = "remove_item")
-    public String remove( String nombre) 
+    public String remove(String nombre) 
     {
          try{
         
         ItemsDoubleLinkedList listaProducto =  ItemsDoubleLinkedList.loadItems();
+       
+        listaProducto.saveItem();
+        return "Success remove item";
+         }catch (Exception e) {
+            e.printStackTrace();
+            return "Failed addItem";
+        }
+         
+    }
+    
+    @WebMethod(operationName = "search_item")
+    public String search(String nombre,String algo) 
+    {
+         try{
         
+        ItemsDoubleLinkedList listaProducto =  ItemsDoubleLinkedList.loadItems();
+       
         listaProducto.saveItem();
         return "Success remove item";
          }catch (Exception e) {
