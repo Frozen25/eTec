@@ -14,22 +14,13 @@ import Estructuras.ItemsDoubleLinkedList;
  */
 public class Tienda {
     
-    private ItemsDoubleLinkedList productos;
-    private Item produc;
+    private ItemsDoubleLinkedList productos = new ItemsDoubleLinkedList();
     private String nombre;
     private int numero;
     
-    public Tienda(String nombre, ItemsDoubleLinkedList productos, Item produc)
+    public Tienda(String nombre, int numero )
     {
         this.nombre = nombre;
-        this.produc = produc;
-        this.productos = productos;
-    }
-    public Tienda(String nombre, ItemsDoubleLinkedList productos, Item produc, int numero)
-    {
-        this.nombre = nombre;
-        this.produc = produc;
-        this.productos = productos;
         this.numero = numero;
     }
     
