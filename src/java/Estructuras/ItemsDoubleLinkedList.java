@@ -6,11 +6,13 @@
 package Estructuras;
 
 import Algoritmos.Search.Binary_Search;
+import static Algoritmos.Search.Binary_Search_Items.busquedaBinaria_Items;
 import Algoritmos.Search.InterpolationSearch;
 import Algoritmos.Sorts.BubbleSort;
 import Algoritmos.Sorts.InsertionSort;
 import Algoritmos.Sorts.MergeSort;
 import basicsOBJs.Item;
+import basicsOBJs.Tienda;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -64,6 +66,23 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
             } 
         }
         return searchstack;
+    }
+    public String SearchTiendas(int codigo){
+        String R="";
+        Node<Tienda> current = ListaTiendas.Lista.getHead();
+        int contador = 0;
+        while (current != null){
+            ItemsDoubleLinkedList lista = current.getData().getLista();
+            if(busquedaBinaria_Items(lista,codigo)!=-1){
+                R+=contador+">";
+                R+=1;
+                current = current.getNext();
+            }else{
+                R+=1;
+                current = current.getNext();
+            }
+        }
+        return R;
     }
     
     

@@ -32,4 +32,12 @@ public class Paquetes {
             return pack.getLocation();
         }
     }
+    
+    @WebMethod(operationName = "setEstado")
+    public String setEstado(int codigo,boolean estado) {
+        PaquetesBST packs = PaquetesBST.loadPaquetes();
+        packs.getMember(codigo).setEstado(estado);
+        packs.savePaq();
+        return "Success setEstado";
+    }
 }

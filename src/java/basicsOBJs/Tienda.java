@@ -35,6 +35,9 @@ public class Tienda {
     public int getNumero(){
         return numero;
     }
+    public ItemsDoubleLinkedList getLista(){
+        return productos;
+    }
     
     
     

@@ -26,8 +26,8 @@ public class Productos {
     @WebMethod(operationName = "add_item")
     public String add( String nombre,String imagen,double Precio, int stock) 
     {
-         try{
-        Item it= new Item(nombre,imagen,Precio,stock);
+        try{
+        Item it= new Item(nombre,(int)Precio,stock);
         ItemsDoubleLinkedList listaProducto =  ItemsDoubleLinkedList.loadItems();
         listaProducto.addLast(it);
         listaProducto.saveItem();

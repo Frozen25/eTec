@@ -39,11 +39,11 @@ public class purebaitem {
         
             
        
-            Item it = new Item("ps1", "ps1.jpg", 3.5, 4000);
-            Item ite = new Item("ps2", "ps2.jpg", 31.5, 4920);
-            Item item = new Item("ps3", "ps3.jpg", 36.5, 4800);
-            Item item1 = new Item("ps4", "ps4.jpg", 35.5, 4700);
-            Item item2 = new Item("psp", "psp.jpg", 16.5, 2000);
+            Item it = new Item("ps1", 3, 4000);
+            Item ite = new Item("ps2", 31, 4920);
+            Item item = new Item("ps3",  36, 4800);
+            Item item1 = new Item("ps4", 35, 4700);
+            Item item2 = new Item("psp", 16, 2000);
             
             
             ItemsDoubleLinkedList l1 = new ItemsDoubleLinkedList();
