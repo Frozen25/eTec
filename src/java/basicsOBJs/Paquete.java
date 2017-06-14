@@ -16,6 +16,7 @@ public class Paquete {
     private int lugar;
     private DoubleLinkedList items;
     private boolean entregado = false;
+    //ruta
     
     public Paquete(int codigo, int lugar){
         this.codigo = codigo;

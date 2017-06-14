@@ -6,7 +6,10 @@
 package basicsOBJs;
 
 import Estructuras.DoubleLinkedList;
+import Estructuras.Grafo_Rutas;
+import static Estructuras.Grafo_Rutas.*;
 import Estructuras.ItemsDoubleLinkedList;
+import Estructuras.ListaTiendas;
 
 /**
  *
@@ -17,6 +20,13 @@ public class Tienda {
     private ItemsDoubleLinkedList productos = new ItemsDoubleLinkedList();
     private String nombre;
     private int numero;
+    
+    public Tienda(){
+        numero = Grafo_Rutas.matriz.length;
+        Grafo_Rutas.addNodo();
+        ListaTiendas.Lista.addLast(this);
+        Grafo_Rutas.addLista(1);
+    }
     
     public Tienda(String nombre, int numero )
     {

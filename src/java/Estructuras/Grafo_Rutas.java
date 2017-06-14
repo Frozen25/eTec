@@ -10,9 +10,17 @@ package Estructuras;
  * @author Alexis
  */
 public class Grafo_Rutas {
+    public static DoubleLinkedList<Integer> datos = new DoubleLinkedList<Integer> ();
     public static int [][] matriz;
     public static int[][] floyd2;
     
+    
+    public static DoubleLinkedList getLista(){
+        return datos;
+    }
+    public static void addLista(int N){
+        datos.addLast(N);
+    }
     
     public static void addNodo(){
         
