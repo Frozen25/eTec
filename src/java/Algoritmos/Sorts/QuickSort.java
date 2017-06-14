@@ -1,6 +1,7 @@
 package Algoritmos.Sorts;
 import java.util.ArrayList;
 import Estructuras.*;
+import basicsOBJs.Item;
 
 public class QuickSort {
     
@@ -122,7 +123,45 @@ public class QuickSort {
  		a.getAt(j).setData(x);		
      }
     
-   
+   /// Para LinkedList Items
+    //*********************************************************************************************************************************
+     ///////////////******************************************************************************************************
+     public static  void QuickSortDoubleLinkedList(ItemsDoubleLinkedList a) {
+     	Node<Item> n = a.getHead();
+     	quicksortDoubleLin(a, 0, a.getSize()-1, n);
+     }
+
+     private static void quicksortDoubleLin (ItemsDoubleLinkedList a, int i, int j, Node<Item> n) {
+ 		if (i<j) {
+ 		    int l = partitionDoubleLin(a,i,j, n);
+ 		    quicksortDoubleLin(a, i, l, n);
+ 		    quicksortDoubleLin(a, l+1, j, n);
+ 		}
+     }
+
+     private static  int partitionDoubleLin(ItemsDoubleLinkedList a, int p, int q, Node<Item> n) {
+ 		Item x = a.getAt(p).getData();
+ 		int m = (p+q)/2;
+ 		if ((a.getAt(p).getData().getNombre().compareTo(a.getAt(m).getData().getNombre())<=0 && (a.getAt(m).getData().getNombre().compareTo(a.getAt(q).getData().getNombre())<=0) || a.getAt(q).getData().getNombre().compareTo(a.getAt(m).getData().getNombre())<=0 && a.getAt(m).getData().getNombre().compareTo(a.getAt(p).getData().getNombre())<=0))
+ 		    x = a.getAt(m).getData();
+ 		if ((a.getAt(p).getData().getNombre().compareTo(a.getAt(q).getData().getNombre())<=0 && a.getAt(q).getData().getNombre().compareTo(a.getAt(m).getData().getNombre())<=0) || (a.getAt(m).getData().getNombre().compareTo(a.getAt(q).getData().getNombre())<=0 && a.getAt(q).getData().getNombre().compareTo(a.getAt(p).getData().getNombre())<=0))
+ 		    x = a.getAt(q).getData();
+ 		int i = p-1;
+ 		int j = q+1;
+ 		while (true) {
+ 		    do i++; while (!(i>q ||a.getAt(i).getData().getNombre().compareTo(x.getNombre())>=0));
+ 		    do j--; while (!(j<p || a.getAt(j).getData().getNombre().compareTo(x.getNombre())<=0));
+ 		    if (i<j) swapDoubleLin(a, i, j, n);
+ 		    else return j;
+ 		}
+     }
+
+     private static  void swapDoubleLin (ItemsDoubleLinkedList a, int i, int j, Node<Item> n) {
+ 		Item x;
+ 		x = a.getAt(i).getData();
+ 		a.getAt(i).setData(a.getAt(j).getData());
+ 		a.getAt(j).setData(x);		
+     }
 	    	
     
 }

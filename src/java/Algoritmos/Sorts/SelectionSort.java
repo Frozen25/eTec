@@ -1,6 +1,7 @@
 package Algoritmos.Sorts;
 import java.util.ArrayList;
 import Estructuras.*;
+import basicsOBJs.Item;
 
 public class SelectionSort<E> {
 	
@@ -56,6 +57,29 @@ public class SelectionSort<E> {
 	            }
 	            // Swap min (smallest num) to current position on array
 	            E min = pos.getData();
+	            pos.setData( i.getData());
+	            i.setData(min);
+	        }
+	 }
+         
+         public static  void SelectionSortDoubleLinkedListList(ItemsDoubleLinkedList list){
+		 Node<Item> head = list.getHead();
+		 selectionLinkedListForItem(head);
+	 }
+	 
+	 public static void selectionLinkedListForItem(Node<Item> head){
+         
+		 Node<Item> i, j;
+		 i = head;
+		 for ( i = head; i != null; i =i.getNext()) {
+	            // find position of smallest num between (i + 1)th element and last element
+	            Node<Item> pos = i;
+	            for ( j = i.getNext(); j != null; j=j.getNext()) {
+	                if (j.getData().getNombre().compareTo(pos.getData().getNombre())<0 )
+	                    pos = j;
+	            }
+	            // Swap min (smallest num) to current position on array
+	            Item min = pos.getData();
 	            pos.setData( i.getData());
 	            i.setData(min);
 	        }

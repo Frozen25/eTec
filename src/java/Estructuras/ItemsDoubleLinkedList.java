@@ -11,6 +11,10 @@ import Algoritmos.Search.InterpolationSearch;
 import Algoritmos.Sorts.BubbleSort;
 import Algoritmos.Sorts.InsertionSort;
 import Algoritmos.Sorts.MergeSort;
+import Algoritmos.Sorts.QuickSort;
+import Algoritmos.Sorts.RadixSort;
+import Algoritmos.Sorts.SelectionSort;
+import Algoritmos.Sorts.ShellSort;
 import basicsOBJs.Item;
 import basicsOBJs.Tienda;
 import java.io.File;
@@ -37,85 +41,64 @@ import org.xml.sax.SAXException;
  * @author Gabriel
  */
 public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
+
     private final static String Direccion = "C:\\Users\\Gabriel\\Documents\\serverdata\\";
     private String searchstack = "";
-    
-    public String busquedaNombres(String id){
+
+    public String busquedaNombres(String id) {
         searchstack = "";
         Node<Item> current = this.getHead();
-        while (current!=null){
-            if(current.getData().getNombre().contains(id)){
-                searchstack+=current.getData().getNombre()+";"+current.getData().getCode()+">";
+        while (current != null) {
+            if (current.getData().getNombre().contains(id)) {
+                searchstack += current.getData().getNombre() + ";" + current.getData().getCode() + ">";
                 current = current.getNext();
-            }else{
+            } else {
                 current = current.getNext();
-            } 
+            }
         }
         return searchstack;
     }
-    public String busquedaCodigo(int id){
-        String x= String.valueOf(id);
+
+    public String busquedaCodigo(int id) {
+        String x = String.valueOf(id);
         searchstack = "";
         Node<Item> current = this.getHead();
-        while (current!=null){
-            if(String.valueOf(current.getData().getCode()).contains(x)){
-                searchstack+=current.getData().getNombre()+";"+current.getData().getCode()+">";
+        while (current != null) {
+            if (String.valueOf(current.getData().getCode()).contains(x)) {
+                searchstack += current.getData().getNombre() + ";" + current.getData().getCode() + ">";
                 current = current.getNext();
-            }else{
+            } else {
                 current = current.getNext();
-            } 
+            }
         }
         return searchstack;
     }
-    public String SearchTiendas(int codigo){
-        String R="";
+
+    public String SearchTiendas(int codigo) {
+        String R = "";
         Node<Tienda> current = ListaTiendas.Lista.getHead();
         int contador = 0;
-        while (current != null){
+        while (current != null) {
             ItemsDoubleLinkedList lista = current.getData().getLista();
-            if(busquedaBinaria_Items(lista,codigo)!=-1){
-                R+=contador+">";
-                R+=1;
+            if (busquedaBinaria_Items(lista, codigo) != -1) {
+                R += contador + ">";
+                R += 1;
                 current = current.getNext();
-            }else{
-                R+=1;
+            } else {
+                R += 1;
                 current = current.getNext();
             }
         }
         return R;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public void saveItem()
-    {
-        Node n1 =this.getHead();
+
+    public void saveItem() {
+        Node n1 = this.getHead();
         saveItem(n1, "Items");
     }
-    private void saveItem(Node<Item> n1,String FileName)
-    {
-         try {
+
+    private void saveItem(Node<Item> n1, String FileName) {
+        try {
 
             DocumentBuilderFactory dfc = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dfc.newDocumentBuilder();
@@ -123,18 +106,17 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
             Document doc = db.newDocument();
             Element Mainelement = doc.createElement("Items");
             doc.appendChild(Mainelement);
-                
+
             int munId = 1;
             while (n1 != null) {
                 Element element = doc.createElement("Item");
                 Mainelement.appendChild(element);
-                
-                
+
                 Attr attr = doc.createAttribute("id");
                 attr.setValue(String.valueOf(munId));
                 element.setAttributeNode(attr);
-                munId++;    
-                
+                munId++;
+
                 Element nombre = doc.createElement("nombre");
                 nombre.appendChild(doc.createTextNode(n1.getData().getNombre()));
                 element.appendChild(nombre);
@@ -158,36 +140,35 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
             Transformer tra = tfac.newTransformer();
 
             DOMSource source = new DOMSource(doc);
-            StreamResult str = new StreamResult(new File(Direccion+FileName+".xml"));
+            StreamResult str = new StreamResult(new File(Direccion + FileName + ".xml"));
 
             tra.transform(source, str);
 
         } catch (ParserConfigurationException | TransformerException ex) {
             Logger.getLogger(ItemsDoubleLinkedList.class.getName()).log(Level.SEVERE, null, ex);
-        
-        }}
-        
-    
-    public static ItemsDoubleLinkedList loadItems(){
 
-        
-              try {
-            File xmlFile= new File( Direccion+"items.xml");
+        }
+    }
+
+    public static ItemsDoubleLinkedList loadItems() {
+
+        try {
+            File xmlFile = new File(Direccion + "items.xml");
             DocumentBuilderFactory dfc = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dfc.newDocumentBuilder();
             Document doc = db.parse(xmlFile);
-            
+
             doc.getDocumentElement().normalize();
-            
+
             NodeList list = doc.getElementsByTagName("Item");
-            
-            ItemsDoubleLinkedList lispro =new ItemsDoubleLinkedList();
-            
-             for (int temp = 0; temp < list.getLength();temp++){
-                 org.w3c.dom.Node noNode = list.item(temp);
-                 
-                 if(noNode.getNodeType() == org.w3c.dom.Node.ELEMENT_NODE){
-                 Element eElement = (Element) noNode;
+
+            ItemsDoubleLinkedList lispro = new ItemsDoubleLinkedList();
+
+            for (int temp = 0; temp < list.getLength(); temp++) {
+                org.w3c.dom.Node noNode = list.item(temp);
+
+                if (noNode.getNodeType() == org.w3c.dom.Node.ELEMENT_NODE) {
+                    Element eElement = (Element) noNode;
                     String nombre = eElement.getElementsByTagName("nombre").item(0).getTextContent();
                     String imagen = eElement.getElementsByTagName("imagen").item(0).getTextContent();
                     String precio = eElement.getElementsByTagName("precio").item(0).getTextContent();
@@ -195,78 +176,60 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
                     double value;
                     int cantidad;
                     System.out.println(stock);
-                     if (precio.equals("0.0") || precio.equals("") || precio.equals("0")){
+                    if (precio.equals("0.0") || precio.equals("") || precio.equals("0")) {
                         value = 0;
-                    }
-                    else{
+                    } else {
                         value = Double.parseDouble(precio);
                     }
-                     if (stock.equals("") || stock.equals("0")){
+                    if (stock.equals("") || stock.equals("0")) {
                         cantidad = 0;
-                    }
-                    else{
+                    } else {
                         cantidad = Integer.parseInt(stock);
                     }
-                    Item iTemp =new Item(nombre,(int)value,cantidad);
+                    Item iTemp = new Item(nombre, (int) value, cantidad);
                     lispro.addLast(iTemp);
-                 }
-             }
-             
-            
-            
-            
-            
-            
-            
+                }
+            }
+
             return lispro;
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(ItemsDoubleLinkedList.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-         
-        
+
     }
-    
-    
-    public static int Search(String searchAlg,String porBuscar,ItemsDoubleLinkedList l1 ){
-        if(searchAlg.compareTo("binaria")>=0){
-            
+
+    public static int Search(String searchAlg, String porBuscar, ItemsDoubleLinkedList l1) {
+        if (searchAlg.compareTo("binaria") >= 0) {
+
             int buscado = Binary_Search.busquedaBinariaDoubleLinkedList(l1, porBuscar);
-            
-        return buscado;
-            
-        } 
+
+            return buscado;
+
+        }
         return -1;
     }
-    
-    public static ItemsDoubleLinkedList Sort(String AlgOrden,ItemsDoubleLinkedList l1){
-        
-        if(AlgOrden.compareTo("Bubble")>=0){
-        BubbleSort.bubbleDoubleLinkedList(l1);
-        }
-        else if(AlgOrden.compareTo("Insertion")>=0){
+
+    public static ItemsDoubleLinkedList Sort(String AlgOrden, ItemsDoubleLinkedList l1) {
+
+        if (AlgOrden.compareTo("Bubble") >= 0) {
+            BubbleSort.bubbleDoubleLinkedList(l1);
+        } else if (AlgOrden.compareTo("Insertion") >= 0) {
             InsertionSort.insertionDoubleLinkedList(l1);
+        } else if (AlgOrden.compareTo("Merge") >= 0) {
+            MergeSort.MergeSortDoubleLinkedList(l1);
+        } else if (AlgOrden.compareTo("Quick") >= 0) {
+            QuickSort.QuickSortDoubleLinkedList(l1);
+        } else if (AlgOrden.compareTo("Radix") >= 0) {
+            RadixSort.radixDoubleLinkedList(l1);
+        } else if (AlgOrden.compareTo("Selection") >= 0) {
+            SelectionSort.SelectionSortDoubleLinkedListList(l1);
+        } else if (AlgOrden.compareTo("Shell") >= 0) {
+            ShellSort.shellDoubleLinked(l1);
         }
-        else if(AlgOrden.compareTo("Merge")>=0){
-        MergeSort.MergeSortDoubleLinkedList(l1);
-        }
-        else if(AlgOrden.compareTo("Quick")>=0){}
-        else if(AlgOrden.compareTo("Radix")>=0){}
-        else if(AlgOrden.compareTo("Selection")>=0){}
-        else if(AlgOrden.compareTo("Shell")>=0){}
-        
+
         return l1;
     }
-    
+
 }

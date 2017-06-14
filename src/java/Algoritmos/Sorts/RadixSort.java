@@ -81,4 +81,29 @@ public class RadixSort {
             exp *= 10;        
         }
     }  
+        
+        public static void radixDoubleLinkedList(ItemsDoubleLinkedList a)
+    {
+        int i, m = Integer.parseInt(a.getAt(0).getData().getNombre()) , exp = 1, n = a.getSize();
+        int[] b = new int[10];
+        
+        for (i = 1; i < n; i++)
+            if (Integer.parseInt (a.getAt(i).getData().getNombre()) > m)
+                m = Integer.parseInt (a.getAt(i).getData().getNombre()) ;
+        
+        while (m / exp > 0)
+        {
+            int[] bucket = new int[10];
+ 
+            for (i = 0; i < n; i++)
+                bucket[(Integer.parseInt (a.getAt(i).getData().getNombre()) / exp) % 10]++;
+            for (i = 1; i < 10; i++)
+                bucket[i] += bucket[i - 1];
+            for (i = n - 1; i >= 0; i--)
+                b[--bucket[(Integer.parseInt (a.getAt(i).getData().getNombre()) / exp) % 10]] = Integer.parseInt (a.getAt(i).getData().getNombre() );
+            for (i = 0; i < n; i++)
+                a.getAt(i).setData(a.getAt(b[i]).getData());		
+            exp *= 10;        
+        }
+    }  
 }

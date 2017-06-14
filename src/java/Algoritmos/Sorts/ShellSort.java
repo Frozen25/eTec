@@ -1,6 +1,7 @@
 package Algoritmos.Sorts;
 import java.util.ArrayList;
 import Estructuras.*;
+import basicsOBJs.Item;
 
 public class ShellSort<E> {
 	
@@ -66,6 +67,23 @@ public class ShellSort<E> {
             }
         } while (incremento > 1);
     }
-	
+	public static <E extends Comparable<E>> void shellDoubleLinked(ItemsDoubleLinkedList list) {
+        final int N = list.getSize();
+        int incremento = N;
+        do {
+            incremento = incremento / 2;
+            for (int k = 0; k < incremento; k++) {
+                for (int i = incremento + k; i < N; i += incremento) {
+                    int j = i;
+                    while (j - incremento >= 0 && list.getAt(j).getData().getNombre().compareTo(list.getAt(j-incremento).getData().getNombre()) < 0) {
+                        Item tmp = list.getAt(j).getData();
+                        list.getAt(j).setData(list.getAt(j-incremento).getData());			    
+                        list.getAt(j-incremento).setData(tmp);
+                        j -= incremento;
+                    }
+                }
+            }
+        } while (incremento > 1);
+    }
 
 }
