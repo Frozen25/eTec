@@ -5,6 +5,8 @@
  */
 package Estructuras;
 
+import Algoritmos.Search.Binary_Search;
+import Algoritmos.Search.InterpolationSearch;
 import basicsOBJs.Item;
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +32,7 @@ import org.xml.sax.SAXException;
  * @author Gabriel
  */
 public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
+    final static String Direccion = "C:\\Users\\Gabriel\\Documents\\serverdata\\";
     public void saveItem()
     {
         Node n1 =this.getHead();
@@ -80,7 +83,7 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
             Transformer tra = tfac.newTransformer();
 
             DOMSource source = new DOMSource(doc);
-            StreamResult str = new StreamResult(new File("C:\\Users\\Gabriel\\Documents\\serverdata\\"+FileName+".xml"));
+            StreamResult str = new StreamResult(new File(Direccion+FileName+".xml"));
 
             tra.transform(source, str);
 
@@ -97,7 +100,7 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
 
         
               try {
-            File xmlFile= new File("C:\\Users\\Gabriel\\Documents\\serverdata\\items.xml");
+            File xmlFile= new File( Direccion+"items.xml");
             DocumentBuilderFactory dfc = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dfc.newDocumentBuilder();
             Document doc = db.parse(xmlFile);
@@ -165,6 +168,21 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
         return null;
          
         
+    }
+    
+    
+    public static int Search(String searchAlg,String porBuscar,ItemsDoubleLinkedList l1 ){
+        if(searchAlg.compareTo("binaria")>0){
+            
+            int buscado = Binary_Search.busquedaBinariaDoubleLinkedList(l1, porBuscar);
+            
+        return buscado;
+            
+        } 
+        return -1;
+    }
+    
+    public void ItemsDoubleLinkedList(String searchAlg,ItemsDoubleLinkedList l1){
     }
     
 }

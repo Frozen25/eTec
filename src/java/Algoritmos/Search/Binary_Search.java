@@ -47,4 +47,23 @@ public class Binary_Search<T>  {
                 } 
                 return -1; 
         } 
+        public static  int busquedaBinariaDoubleLinkedList(ItemsDoubleLinkedList list, String dato){
+		int n = list.getSize(); 
+		int centro,inf=0,sup=n-1; 
+		
+		while(inf<=sup){ 
+			centro=(sup+inf)/2; 
+			if(list.getAt(centro).getData().getNombre()==dato){ 
+                            System.out.println(centro);
+                            return centro;} 
+                        else 
+                            if(dato.compareTo(list.getAt(centro).getData().getNombre())<0 ){ 
+                                sup=centro-1;  
+                            }
+                            else { 
+                                inf=centro+1; 
+                            } 
+                } 
+                return -1; 
+        } 
 }
