@@ -26,7 +26,7 @@ public class Paquetes {
         PaquetesBST packs = PaquetesBST.loadPaquetes();
         Paquete pack = packs.getMember(codigo);
         if (pack.getState()){
-            return -1;
+            return -1*pack.getLocation();
         }
         else{
             return pack.getLocation();
