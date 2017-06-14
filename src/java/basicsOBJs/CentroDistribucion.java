@@ -1,5 +1,7 @@
 package basicsOBJs;
  
+import Estructuras.arboles.PaquetesBST;
+
 
  
 /**
@@ -10,36 +12,18 @@ package basicsOBJs;
  
  */
  
-public class CentroDistribucion 
+public class CentroDistribucion {
+
+    private int codigo;
  
-{
- 
-    private String nombre;
- 
-    
- 
-    public CentroDistribucion(String nombre){
- 
-        this.nombre = nombre;
- 
+    public CentroDistribucion(int codigo){
+        this.codigo = codigo;
     }
- 
     
  
-    public String getName(){
- 
-        return nombre;
- 
-    }
- 
-    
- 
-    public void entregado(Item produc)
- 
-    {
- 
-       produc.entregado();
- 
+    public void entregado(int paquete){
+        PaquetesBST packs = PaquetesBST.loadPaquetes();
+        packs.getMember(paquete).setEstado(true);
     }
  
 

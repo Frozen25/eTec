@@ -2,31 +2,18 @@ package basicsOBJs;
 
 public class Item {
  
-    private String nombre,imagen;
+    private String nombre;
     private double precio;
-    private int stock;
-    private boolean inStock;
-    private boolean entregado;
+    private int codigo;
 
-  
-    public boolean inStock(){return stock>0;}
 
-    public boolean isEntregado() {
-        return entregado;
-    }
-
-    
- 
-
-     public Item(String nombre, String imagen, double Precio, int stock)
-     {
+    public Item(String nombre, int codigo, double Precio)
+    {
         this.nombre = nombre;
-        this.imagen = imagen;
         this.precio=Precio;
-        this.stock = stock;
-        this.inStock = false;
+        this.codigo = codigo;
     }
-
+ 
     public String getNombre() {
         return nombre;
     }
@@ -34,15 +21,12 @@ public class Item {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public String getImagen() {
-        return imagen;
+    public void setCode(int newCode){
+        codigo = newCode;
     }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public int getCode(){
+        return codigo;
     }
-
     public double getPrecio() {
         return precio;
     }
@@ -51,27 +35,5 @@ public class Item {
         this.precio = Precio;
     }
 
-    
-    
-    
-    
-    public int getStock() {
-        return stock;
-    }
 
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
- 
-     
- 
-     public void entregado()
-     {
-         entregado = true;
- 
-     }
-
-
-
-   
 }
