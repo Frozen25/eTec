@@ -3,6 +3,7 @@ package Algoritmos.Sorts;
 import java.util.ArrayList;
 
 import Estructuras.*;
+import basicsOBJs.Item;
 
 /**
  * 
@@ -61,6 +62,36 @@ public class BubbleSort<E> {
 	            {
 	                for (j=i.getNext(); j!=null; j= j.getNext()) {
 	                    if ((i.getData()).compareTo(j.getData())>0)
+	                    {
+	                        temp = i.getData();
+	                        i.setData(j.getData());
+	                        j.setData(temp);
+	                    }
+	                }
+	            }
+	        }
+	  }
+        
+        public static void bubbleDoubleLinkedList(ItemsDoubleLinkedList list){
+		Node<Item> head = list.getHead();
+		bubbleLinkedForItem(head);
+	}
+	
+    /**
+     *
+     * @param head
+     */
+    public static void bubbleLinkedForItem(Node<Item> head)
+	{
+	        Node<Item> i, j;
+	        i = head;
+	        Item temp;
+	        
+	        {
+	            for (i = head; i!=null; i=i.getNext()) // bubble sort outer loop
+	            {
+	                for (j=i.getNext(); j!=null; j= j.getNext()) {
+	                    if ((i.getData().getNombre()).compareTo(j.getData().getNombre())>0)
 	                    {
 	                        temp = i.getData();
 	                        i.setData(j.getData());

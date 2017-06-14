@@ -1,6 +1,7 @@
 package Algoritmos.Sorts;
 import java.util.ArrayList;
 import Estructuras.*;
+import basicsOBJs.Item;
 public class InsertionSort<E> {
 
 	///Para arrays
@@ -53,6 +54,37 @@ public class InsertionSort<E> {
         	
         	while(puntero.getNext()!= nodo){
         		if(puntero.getData().compareTo(nodo.getData())>0){
+        			temp = nodo.getData();
+        			nodo.setData(puntero.getData());
+        			puntero.setData(temp);
+        		}
+        		else{
+        			puntero = puntero.getNext();
+        		}
+        	}
+        	nodo = nodo.getNext();
+        }  
+	}
+        
+        public static  void insertionDoubleLinkedList(ItemsDoubleLinkedList list){
+		Node<Item> nodo = list.getHead();
+		insertionLinkedForItem(nodo);
+	}
+	
+	public static void insertionLinkedForItem(Node<Item> nodo){
+		
+		Item temp;
+		Node<Item> head;
+		Node<Item> puntero;
+		head = nodo;
+		puntero = head;
+        nodo = nodo.getNext();
+        
+        while(nodo != null){
+        	puntero = head;
+        	
+        	while(puntero.getNext()!= nodo){
+        		if(puntero.getData().getNombre().compareTo(nodo.getData().getNombre())>0){
         			temp = nodo.getData();
         			nodo.setData(puntero.getData());
         			puntero.setData(temp);

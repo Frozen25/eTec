@@ -7,6 +7,9 @@ package Estructuras;
 
 import Algoritmos.Search.Binary_Search;
 import Algoritmos.Search.InterpolationSearch;
+import Algoritmos.Sorts.BubbleSort;
+import Algoritmos.Sorts.InsertionSort;
+import Algoritmos.Sorts.MergeSort;
 import basicsOBJs.Item;
 import java.io.File;
 import java.io.IOException;
@@ -87,12 +90,9 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
 
             tra.transform(source, str);
 
-        } catch (ParserConfigurationException ex) {
+        } catch (ParserConfigurationException | TransformerException ex) {
             Logger.getLogger(ItemsDoubleLinkedList.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (TransformerConfigurationException ex) {
-            Logger.getLogger(ItemsDoubleLinkedList.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (TransformerException ex) {
-            Logger.getLogger(ItemsDoubleLinkedList.class.getName()).log(Level.SEVERE, null, ex);
+        
         }}
         
     
@@ -158,11 +158,7 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
             
             
             
-        } catch (ParserConfigurationException ex) {
-            Logger.getLogger(ItemsDoubleLinkedList.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SAXException ex) {
-            Logger.getLogger(ItemsDoubleLinkedList.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(ItemsDoubleLinkedList.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
@@ -172,7 +168,7 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
     
     
     public static int Search(String searchAlg,String porBuscar,ItemsDoubleLinkedList l1 ){
-        if(searchAlg.compareTo("binaria")>0){
+        if(searchAlg.compareTo("binaria")>=0){
             
             int buscado = Binary_Search.busquedaBinariaDoubleLinkedList(l1, porBuscar);
             
@@ -182,7 +178,23 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
         return -1;
     }
     
-    public void ItemsDoubleLinkedList(String searchAlg,ItemsDoubleLinkedList l1){
+    public static ItemsDoubleLinkedList Sort(String AlgOrden,ItemsDoubleLinkedList l1){
+        
+        if(AlgOrden.compareTo("Bubble")>=0){
+        BubbleSort.bubbleDoubleLinkedList(l1);
+        }
+        else if(AlgOrden.compareTo("Insertion")>=0){
+            InsertionSort.insertionDoubleLinkedList(l1);
+        }
+        else if(AlgOrden.compareTo("Merge")>=0){
+        MergeSort.MergeSortDoubleLinkedList(l1);
+        }
+        else if(AlgOrden.compareTo("Quick")>=0){}
+        else if(AlgOrden.compareTo("Radix")>=0){}
+        else if(AlgOrden.compareTo("Selection")>=0){}
+        else if(AlgOrden.compareTo("Shell")>=0){}
+        
+        return l1;
     }
     
 }

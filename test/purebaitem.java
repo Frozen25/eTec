@@ -39,7 +39,6 @@ public class purebaitem {
         
             
        
-        try {
             Item it = new Item("ps1", "ps1.jpg", 3.5, 4000);
             Item ite = new Item("ps2", "ps2.jpg", 31.5, 4920);
             Item item = new Item("ps3", "ps3.jpg", 36.5, 4800);
@@ -55,74 +54,9 @@ public class purebaitem {
             l1.addLast(item2);
             //BubbleSort<Item> bubbleSort = BubbleSort<Item>;
             
-            l1.saveItem();
-            File xmlFile= new File("C:\\Users\\Gabriel\\Documents\\serverdata\\items.xml");
-            DocumentBuilderFactory dfc = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dfc.newDocumentBuilder();
-            Document doc = db.parse(xmlFile);
-            
-            doc.getDocumentElement().normalize();
-            
-            NodeList list = doc.getElementsByTagName("Item");
-            
-            ItemsDoubleLinkedList lispro =new ItemsDoubleLinkedList();
-            
-             for (int temp = 0; temp < list.getLength();temp++){
-                 org.w3c.dom.Node noNode = list.item(temp);
-                 
-                 if(noNode.getNodeType() == org.w3c.dom.Node.ELEMENT_NODE){
-                 Element eElement = (Element) noNode;
-                    String nombre = eElement.getElementsByTagName("nombre").item(0).getTextContent();
-                    String imagen = eElement.getElementsByTagName("imagen").item(0).getTextContent();
-                    String precio = eElement.getElementsByTagName("precio").item(0).getTextContent();
-                    String stock = eElement.getElementsByTagName("stock").item(0).getTextContent();
-                    double value;
-                    int cantidad;
-                    System.out.println(stock);
-                     if (precio.equals("0.0") || precio.equals("") || precio.equals("0")){
-                        value = 0;
-                    }
-                    else{
-                        value = Double.parseDouble(precio);
-                    }
-                     if (stock.equals("") || stock.equals("0")){
-                        cantidad = 0;
-                    }
-                    else{
-                        cantidad = Integer.parseInt(stock);
-                    }
-                    Item iTemp =new Item(nombre,imagen,value,cantidad);
-                    lispro.addLast(iTemp);
-                 }
-             }
-             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            System.out.println(lispro.getHead().getData().getNombre());
-            
-            
-            
-            
-            
-            
-            
-            
-        } catch (ParserConfigurationException ex) {
-            Logger.getLogger(purebaitem.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SAXException ex) {
-            Logger.getLogger(purebaitem.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(purebaitem.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        }
+            //l1.saveItem();
+            int s = ItemsDoubleLinkedList.Search("binaria", "psp", l1);
+            System.out.println(s);
     }
 
-//https://www.youtube.com/watch?v=zFufOEsvHqU
+}

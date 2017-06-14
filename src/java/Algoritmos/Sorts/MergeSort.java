@@ -2,6 +2,7 @@ package Algoritmos.Sorts;
 
 import java.lang.*;
 import Estructuras.*;
+import basicsOBJs.Item;
 import java.util.ArrayList;
 
 public class MergeSort<T> {
@@ -137,4 +138,50 @@ public class MergeSort<T> {
             		a.getAt(k+p).setData((T)tmp[k]);
                 }
                 }   
+                
+                
+                
+                public static  void MergeSortDoubleLinkedList(ItemsDoubleLinkedList list) {
+            	Node<Item> n = list.getHead();
+            	mergesortDoubleLinkedForItem (list, 0, list.getSize()-1, n);
+                }
+                
+            	private static void mergesortDoubleLinkedForItem (ItemsDoubleLinkedList a, int i, int j, Node<Item> n) {
+            	if (j-i < 1) return;
+            	int mid = (i+j)/2;
+            	mergesortDoubleLinkedForItem (a, i, mid,n);
+            	mergesortDoubleLinkedForItem (a, mid+1, j, n);
+            	mergeDoubleLinkedForItem (a, i, mid, j, n);
+                }
+
+                // Merge method
+                // Here we need to allocate a new array, but Java does not allow allocating arrays of a generic type
+                // As a work-around we allocate an array of type Object[] the use type casting
+                // This would usually generate a warning, which is suppressed
+                private static  void  mergeDoubleLinkedForItem (ItemsDoubleLinkedList a, int p, int mid, int q, Node<Item> n) {
+
+            	Object[] tmp = new Object[q-p+1]; 
+            	int i = p;
+            	int j = mid+1;
+            	int k = 0;
+            	while (i <= mid && j <= q) {
+            	    if(a.getAt(i).getData().getNombre().compareTo(a.getAt(j).getData().getNombre())<=0)
+            		tmp[k] = a.getAt(i++).getData();
+            	    else
+            		tmp[k] = a.getAt(j++).getData();
+            	    k++;
+            	}
+            	if (i <= mid && j > q) {
+            	    while (i <= mid) 
+            		tmp[k++] = a.getAt(i++).getData();
+            	} else {
+            	    while (j <= q)
+            		tmp[k++] = a.getAt(j++).getData();
+            	}
+            	for (k = 0; k < tmp.length; k++) {
+            		a.getAt(k+p).setData((Item)tmp[k]);
+                }
+                }
+                
+                
 }
