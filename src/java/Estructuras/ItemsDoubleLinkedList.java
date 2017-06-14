@@ -35,13 +35,66 @@ import org.xml.sax.SAXException;
  * @author Gabriel
  */
 public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
-    final static String Direccion = "C:\\Users\\Gabriel\\Documents\\serverdata\\";
+    private final static String Direccion = "C:\\Users\\Gabriel\\Documents\\serverdata\\";
+    private String searchstack = "";
+    
+    public String busquedaNombres(String id){
+        searchstack = "";
+        Node<Item> current = this.getHead();
+        while (current!=null){
+            if(current.getData().getNombre().contains(id)){
+                searchstack+=current.getData().getNombre()+";"+current.getData().getCode()+">";
+                current = current.getNext();
+            }else{
+                current = current.getNext();
+            } 
+        }
+        return searchstack;
+    }
+    public String busquedaCodigo(int id){
+        String x= String.valueOf(id);
+        searchstack = "";
+        Node<Item> current = this.getHead();
+        while (current!=null){
+            if(String.valueOf(current.getData().getCode()).contains(x)){
+                searchstack+=current.getData().getNombre()+";"+current.getData().getCode()+">";
+                current = current.getNext();
+            }else{
+                current = current.getNext();
+            } 
+        }
+        return searchstack;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public void saveItem()
     {
         Node n1 =this.getHead();
         saveItem(n1, "Items");
     }
-     private void saveItem(Node<Item> n1,String FileName)
+    private void saveItem(Node<Item> n1,String FileName)
     {
          try {
 
@@ -68,7 +121,7 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
                 element.appendChild(nombre);
 
                 Element imagen = doc.createElement("imagen");
-                imagen.appendChild(doc.createTextNode(n1.getData().getImagen()));
+                imagen.appendChild(doc.createTextNode("1"));
                 element.appendChild(imagen);
 
                 Element precio = doc.createElement("precio");
@@ -76,7 +129,7 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
                 element.appendChild(precio);
 
                 Element stock = doc.createElement("stock");
-                stock.appendChild(doc.createTextNode(String.valueOf(n1.getData().getStock())));
+                stock.appendChild(doc.createTextNode("1"));
                 element.appendChild(stock);
 
                 n1 = n1.getNext();
@@ -135,7 +188,7 @@ public class ItemsDoubleLinkedList extends DoubleLinkedList<Item> {
                     else{
                         cantidad = Integer.parseInt(stock);
                     }
-                    Item iTemp =new Item(nombre,imagen,value,cantidad);
+                    Item iTemp =new Item(nombre,(int)value,cantidad);
                     lispro.addLast(iTemp);
                  }
              }

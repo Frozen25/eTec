@@ -64,7 +64,7 @@ public class DoubleLinkedList<T>
             ultimo.setPrevious(current);
         }
     }
-    
+      
     public void addAt( T data, int pos ){
         Node<T> nuevo = new Node<T>(data);
         Node<T> current = head;
@@ -98,6 +98,14 @@ public class DoubleLinkedList<T>
         }
         return current;
     }
+    
+    public Node<T> getLast(){
+        Node<T> current = this.head;
+        while (current.getNext() != null){
+                current = current.getNext();
+        }
+        return current;
+    }  
     
     public void deleteFirst(){
         Node<T> current = head;
