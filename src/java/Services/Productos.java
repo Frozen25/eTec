@@ -39,13 +39,15 @@ public class Productos {
          
     }
     
-    @WebMethod(operationName = "remove_item")
+     @WebMethod(operationName = "remove_item")
     public String remove(String nombre) 
     {
          try{
         
         ItemsDoubleLinkedList listaProducto =  ItemsDoubleLinkedList.loadItems();
-       
+        ItemsDoubleLinkedList.Sort(" Quick", listaProducto);
+        int del = ItemsDoubleLinkedList.Search("binaria", nombre, listaProducto);
+        listaProducto.deleteAt(del);
         listaProducto.saveItem();
         return "Success remove item";
          }catch (Exception e) {
@@ -61,13 +63,16 @@ public class Productos {
          try{
         
         ItemsDoubleLinkedList listaProducto =  ItemsDoubleLinkedList.loadItems();
-       
+       int sear = ItemsDoubleLinkedList.Search("binaria", nombre, listaProducto);
+       if(sear >0){       Item ite=listaProducto.getAt(sear).getData();
         listaProducto.saveItem();
-        return "Success remove item";
+        return ite.toString() ;}
+         
+         
          }catch (Exception e) {
             e.printStackTrace();
             return "Failed addItem";
         }
-         
+         return "";
     }
 }
