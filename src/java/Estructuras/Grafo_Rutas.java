@@ -63,9 +63,72 @@ public class Grafo_Rutas {
     }
     
     
+    public void delete(int node){
+        
+        imprimir(matriz);
+        //keep copy of original matrix
+        int[][] matrixCopy = matriz;
+
+        //Assume 
+        int rowToRemove = node;
+        int colToRemove = node;
+        int rows = matriz.length;
+        int cols = matriz.length;
+        // re-initialise matrix with dimension i-1 , j-1
+        matriz = new int[rows-1][cols-1];
+ 
+
+        //row and column counter for the new matrix
+        int tmpX=-1;
+        int tmpY=-1;
+
+
+        //re-populate new matrix by searching through the original copy of matrix, while skipping useless row and column
+        // works only for 1 row and 1 column in a 2d array but by changing the conditional statement we can make it work for n number of rows or columns in a 2d array.
+        for(int i=0; i<rows; i++){
+         tmpX++;
+         if(i==rowToRemove){
+             tmpX--;
+         }
+         tmpY=-1;
+            for(int j=0; j<cols; j++){
+
+
+               tmpY++;
+              if(j==colToRemove){
+              tmpY--;
+              }
+
+                 if(i!=colToRemove&&j!=colToRemove){
+
+                   matriz[tmpX][tmpY] = matrixCopy[i][j];
+
+                   //System.out.println(counter+" :"+matriz[tmpX][tmpY]);
+                 }
+
+
+            }
+
+        }
+        imprimir(matriz);
+    
+    
+    }
     
     
     
+    
+    
+    
+    public static void imprimir(int [][] matriz){
+        for(int[] i : matriz){
+                for(int b : i){
+                    System.out.print(b + "\t");
+                }
+                System.out.print("\n");
+            }
+            System.out.println("");
+        }
     
     
 }
