@@ -6,6 +6,8 @@
 package Services;
 
 import Estructuras.DoubleLinkedList;
+import Estructuras.ItemsDoubleLinkedList;
+import Estructuras.ListaTiendas;
 import Estructuras.Node;
 import basicsOBJs.Tienda;
 import javax.jws.WebService;
@@ -30,22 +32,24 @@ public class Busqueda_Tiendas {
     }
     
     
-        /*
-    
+        
+    /*
     @WebMethod(operationName = "busquedaB")
-    public DoubleLinkedList busquedaB(int codigo){
-        DoubleLinkedList lista_tiendas = new DoubleLinkedList(); 
+    public DoubleLinkedList busquedaB(int codigo, String AlgOrden){
+        ListaTiendas lista_tiendas = new ListaTiendas(); 
         //lista_tiendas =  = loadtiendas();
-        Node tiendaCurrent = lista_tiendas.getHead();
+        Node<Tienda> tiendaCurrent = lista_tiendas.getHead();
 
         DoubleLinkedList tiendas_resultantes = new DoubleLinkedList(); 
         
         
         while(tiendaCurrent!=null){
-            DoubleLinkedList productos_current;
+            ItemsDoubleLinkedList productos_current;
             
-            productos_current = tiendaCurrent.getProducts();
-            productos_current ordenar por code
+            productos_current = tiendaCurrent.getData().getLista();
+            
+            ItemsDoubleLinkedList.Sort(AlgOrden, productos_current);
+            
             
             if (( busquedaBinaria (productos_current, codigo ))!= -1)
             {
@@ -61,19 +65,20 @@ public class Busqueda_Tiendas {
     }
     
     @WebMethod(operationName = "busquedaI")
-    public DoubleLinkedList busquedaI(int codigo){
-        DoubleLinkedList lista_tiendas = new DoubleLinkedList(); 
+    public DoubleLinkedList busquedaI(int codigo,String AlgOrden){
+        ListaTiendas lista_tiendas = new ListaTiendas();
         //lista_tiendas =  = loadtiendas();
-        Node tiendaCurrent = lista_tiendas.getHead();
-        
-        DoubleLinkedList tiendas_resultantes = new DoubleLinkedList(); 
+       Node<Tienda> tiendaCurrent = lista_tiendas.getHead();
+
+        DoubleLinkedList tiendas_resultantes = new DoubleLinkedList();
         
         
         while(tiendaCurrent!=null){
-            DoubleLinkedList productos_current;
+           ItemsDoubleLinkedList productos_current;
             
-            productos_current = tiendaCurrent.getProducts();
-            productos_current ordenar por code
+            productos_current = tiendaCurrent.getData().getLista();
+            
+            ItemsDoubleLinkedList.Sort(AlgOrden, productos_current);
             
                     
                     
