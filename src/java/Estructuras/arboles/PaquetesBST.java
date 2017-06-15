@@ -265,6 +265,16 @@ public class PaquetesBST {
 		at3.appendChild(doc.createTextNode(lug));
 		element.appendChild(at3);
                 
+                Element at4 = doc.createElement("Destino");
+                String des;
+                if ((Integer.toString(mynode.getData().getDestino()) != null)){
+                    des = Integer.toString(mynode.getData().getDestino());
+                }else{
+                    des = " ";
+                }
+		at4.appendChild(doc.createTextNode(des));
+		element.appendChild(at4);
+                
                 Element atn = doc.createElement("Items");
                 DoubleLinkedList lista = mynode.getData().getlist();
                 Node current;
@@ -350,7 +360,18 @@ public class PaquetesBST {
 
                     Element eElement = (Element) nNode;
                     String lugar = eElement.getElementsByTagName("Lugar").item(0).getTextContent();
-                    Paquete paqtemp = new Paquete(Integer.parseInt(eElement.getAttribute("id")) , Integer.parseInt(lugar));
+                    String des = eElement.getElementsByTagName("Destino").item(0).getTextContent();
+                    int dest;
+                    if (des.equals(" ") || (des.equals("") || (des.equals(null)))){
+                    dest=-1;
+                    }else{
+                    dest = Integer.valueOf(des);
+                    }
+                        
+                        
+                    
+                    
+                    Paquete paqtemp = new Paquete(Integer.parseInt(eElement.getAttribute("id")) , Integer.parseInt(lugar), dest);
                     
                     String estad = eElement.getElementsByTagName("Estado").item(0).getTextContent();
                     

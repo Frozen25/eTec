@@ -16,11 +16,16 @@ public class Paquete {
     private int lugar;
     private DoubleLinkedList items;
     private boolean entregado = false;
-    //ruta
+    private int destino;
     
     public Paquete(int codigo, int lugar){
         this.codigo = codigo;
         this.lugar = lugar;
+    }
+    public Paquete(int codigo, int lugar, int destino){
+        this.codigo = codigo;
+        this.lugar = lugar;
+        this.destino = destino;
     }
     public int getCode(){
         return codigo;
@@ -46,7 +51,12 @@ public class Paquete {
     public DoubleLinkedList getlist(){
         return items;
     }
-    
+    public void setDestino(int newD){
+        destino = newD;
+    }
+    public int getDestino(){
+        return destino;
+    }
     
     
 }
