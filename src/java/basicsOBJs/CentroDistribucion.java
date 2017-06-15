@@ -27,12 +27,13 @@ public class CentroDistribucion {
         this.codigo = codigo;
     }
     
- 
     public void entregado(int paquete){
         PaquetesBST packs = PaquetesBST.loadPaquetes();
         packs.getMember(paquete).setEstado(true);
     }
- 
+    public int getCode(){
+        return codigo;
+    }
 
  
 }

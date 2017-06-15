@@ -17,8 +17,16 @@ public class Gasolinera {
     private int codigo;
     private int tiempoParada;
     
+    public Gasolinera()
+    {
+        codigo= Grafo_Rutas.matriz.length;
+        Grafo_Rutas.addNodo();
+        Grafo_Rutas.addLista(2);
+    }
+    
     public Gasolinera(int tiempoParada)
     {
+        this.tiempoParada = tiempoParada;
         codigo= Grafo_Rutas.matriz.length;
         Grafo_Rutas.addNodo();
         Grafo_Rutas.addLista(2);
@@ -34,5 +42,8 @@ public class Gasolinera {
     }
     public int getTime(){
         return tiempoParada;
+    }
+    public void setTime(int tiempo){
+         tiempoParada=tiempo;
     }
  }

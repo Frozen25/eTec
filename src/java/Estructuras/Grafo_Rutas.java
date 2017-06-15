@@ -66,12 +66,12 @@ public class Grafo_Rutas {
         }
     }
     
-    public void modificar(int i, int j , int peso){
+    public static void modificar(int i, int j , int peso){
         matriz[i][j] = peso;
     }
     
     
-    public void delete(int node){
+    public static void delete(int node){
         
         imprimir(matriz);
         //keep copy of original matrix

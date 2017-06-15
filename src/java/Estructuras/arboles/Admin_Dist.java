@@ -14,6 +14,12 @@ public class Admin_Dist {
     private String pass;
     private int codigo;
     
+    public Admin_Dist(String nombre, int codigo){
+        this.name = nombre;
+        this.pass = nombre;
+        this.codigo = codigo;
+    }
+    
     public Admin_Dist(String nombre, int codigo, String clave){
         this.name = nombre;
         this.codigo = codigo;
