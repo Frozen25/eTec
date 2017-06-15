@@ -20,8 +20,8 @@ public class ProduSearch {
     /**
      * This is a sample web service operation
      */
-    @WebMethod(operationName = "coincidendciasNombre")
-    public String[] busquedas_coincidendcias( String txt,String AlgOrden) {
+    @WebMethod(operationName = "coincidenciasNombre")
+    public String[] coincidenciasNombre( String txt,String AlgOrden) {
         try{
         
         ItemsDoubleLinkedList listaProducto =  ItemsDoubleLinkedList.loadItems();
@@ -37,8 +37,8 @@ public class ProduSearch {
         }
     }
     
-     @WebMethod(operationName = "coincidendciasCodigo")
-    public String[] busquedas_coincidendciasCod( int id,String AlgOrden) {
+     @WebMethod(operationName = "coincidenciasCodigo")
+    public String[] coincidenciasCodigo( int id,String AlgOrden) {
         try{
         
         ItemsDoubleLinkedList listaProducto =  ItemsDoubleLinkedList.loadItems();
