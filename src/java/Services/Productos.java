@@ -66,13 +66,13 @@ public class Productos {
        int sear = ItemsDoubleLinkedList.Search("binaria", nombre, listaProducto);
        if(sear >0){       Item ite=listaProducto.getAt(sear).getData();
         listaProducto.saveItem();
-        return ite.toString() ;}
+        return ite.toString() ;}else{return "Failed searching Item";}
          
          
          }catch (Exception e) {
             e.printStackTrace();
-            return "Failed addItem";
+            return "Failed searching Item";
         }
-         return "";
+         
     }
 }
