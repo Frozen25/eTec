@@ -25,10 +25,11 @@ public class ProduSearch {
         try{
         
         ItemsDoubleLinkedList listaProducto =  ItemsDoubleLinkedList.loadItems();
-        String lis =ItemsDoubleLinkedList.listString();
+        ItemsDoubleLinkedList.ListaGeneral = listaProducto;
+        String lis =ItemsDoubleLinkedList.busquedaNombres(txt);
         String[] items =ItemsDoubleLinkedList.listaray(lis);
-        ItemsDoubleLinkedList.SortA(txt, items);
-        listaProducto.saveItem();
+        ItemsDoubleLinkedList.SortA(AlgOrden, items);
+        //listaProducto.saveItem();
         return items;
          }catch (Exception e) {
             e.printStackTrace();

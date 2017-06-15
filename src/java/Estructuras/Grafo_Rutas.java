@@ -5,6 +5,9 @@
  */
 package Estructuras;
 
+import Algoritmos.Grafos.Floyd;
+import Estructuras.arboles.PaquetesBST;
+
 /**
  *
  * @author Alexis
@@ -123,6 +126,35 @@ public class Grafo_Rutas {
     
     }
     
+    public static String getVector(int ubicacion, int destino){
+        int x = ubicacion;
+        int y = destino;
+        Floyd.floyd( Grafo_Rutas.matriz);
+        int[][] recorridos = Floyd.recorridos();
+        int [] vectorposible = recorridos[x];
+        String R = "";
+        while(y!=x){
+            R=y+">"+R;
+            y=vectorposible[y];
+        }
+        R=y+">"+R;
+        return R;
+    }
+    
+    
+    public static void moverPaquete(int codigo){
+        PaquetesBST packs = PaquetesBST.loadPaquetes();
+        int location = packs.getMember(codigo).getLocation();
+        int destino = packs.getMember(codigo).getDestino();
+        String vector = getVector(location, destino);
+        if ((vector!="")&&(vector != null)){
+            Integer primernum = Integer.valueOf(vector.substring(0, 1));
+            vector = vector.substring(2);
+            packs.getMember(codigo).setLocation(primernum);
+            packs.savePaq();
+        }
+        
+    }
     
     
     
