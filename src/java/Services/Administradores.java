@@ -26,6 +26,9 @@ public class Administradores {
 
     /**
      * This is a sample web service operation
+     * @param nombre
+     * @param codigo
+     * @param pass
      */
    @WebMethod(operationName = "addAdmin")
     public String add( String nombre, int codigo, String pass) {
@@ -33,10 +36,25 @@ public class Administradores {
             AdminBST newC = AdminBST.load_Adm();
             Admin_Dist id = new Admin_Dist(nombre, codigo, pass);
             newC.insert(id);
+            String x;
             return "Success";
         }catch (Exception e) {
             e.printStackTrace();
             return "Failed addAdmin";
+        }
+    }
+    @WebMethod(operationName = "agregarAdmin")
+    public String agregarAdmin( String name, int code, String pass) {
+        try{
+            AdminBST newC = AdminBST.load_Adm();
+            Admin_Dist id = new Admin_Dist(name, code, pass);
+            newC.insert(id);
+            newC.save_Adm();
+            String x;
+            return "Success";
+        }catch (Exception e) {
+            e.printStackTrace();
+            return "Failed agregarAdmin";
         }
     }
     
