@@ -10,6 +10,7 @@ import Estructuras.Grafo_Rutas;
 import static Estructuras.Grafo_Rutas.*;
 import Estructuras.ItemsDoubleLinkedList;
 import Estructuras.ListaTiendas;
+import Estructuras.Node;
 
 /**
  *
@@ -49,6 +50,11 @@ public class Tienda {
         return productos;
     }
     
-    
+    public Item getItem(int codigo){
+        Node<Item> temp =productos.getHead();
+        while(temp.getData().getCode() ==codigo){temp = temp.getNext();}
+        return temp.getData();
+        
+    }
     
 }

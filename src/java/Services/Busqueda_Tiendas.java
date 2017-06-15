@@ -5,6 +5,8 @@
  */
 package Services;
 
+import Algoritmos.Search.Binary_Search_Items;
+import Algoritmos.Search.InterpolationSerachItem;
 import Estructuras.DoubleLinkedList;
 import Estructuras.ItemsDoubleLinkedList;
 import Estructuras.ListaTiendas;
@@ -28,12 +30,13 @@ public class Busqueda_Tiendas {
     @WebMethod(operationName = "operation")
     public String operation() {
         //TODO write your implementation code here:
+        
         return null;
     }
     
     
         
-    /*
+    
     @WebMethod(operationName = "busquedaB")
     public DoubleLinkedList busquedaB(int codigo, String AlgOrden){
         ListaTiendas lista_tiendas = new ListaTiendas(); 
@@ -51,7 +54,7 @@ public class Busqueda_Tiendas {
             ItemsDoubleLinkedList.Sort(AlgOrden, productos_current);
             
             
-            if (( busquedaBinaria (productos_current, codigo ))!= -1)
+            if (( Binary_Search_Items.busquedaBinaria_Items(productos_current, codigo ))!= -1)
             {
                 tiendas_resultantes.addFirst(tiendaCurrent);
             }
@@ -82,7 +85,7 @@ public class Busqueda_Tiendas {
             
                     
                     
-            if (( busquedaInterpolada (productos_current, codigo ))!= -1)
+            if (( InterpolationSerachItem.interpolationSearchDoubleLinkedList(productos_current, codigo ))!= -1)
             {
                 tiendas_resultantes.addFirst(tiendaCurrent);
             }
@@ -94,7 +97,7 @@ public class Busqueda_Tiendas {
         
         
     }
-    */
+    
 
  
 }
