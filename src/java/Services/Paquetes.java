@@ -5,6 +5,7 @@
  */
 package Services;
 
+import Estructuras.Grafo_Rutas;
 import Estructuras.arboles.PaquetesBST;
 import basicsOBJs.Paquete;
 import javax.jws.WebService;
@@ -40,4 +41,30 @@ public class Paquetes {
         packs.savePaq();
         return "Success setEstado";
     }
+    
+    @WebMethod(operationName = "getRuta")
+    public String getRuta(int codigo) {
+        PaquetesBST packs = PaquetesBST.loadPaquetes();
+        int location = packs.getMember(codigo).getLocation();
+        int destino = packs.getMember(codigo).getDestino();
+        String vector = Grafo_Rutas.getVector(location, destino);
+        return vector;
+    }
+    
+    @WebMethod(operationName = "moverPaquete")
+    public String moverPaquete(int codigo) {
+        
+        Grafo_Rutas.moverPaquete(codigo);
+
+        return "Success moverPaquete";
+    }
+    @WebMethod(operationName = "elminarPaquetes")
+    public String elminarPaquetes(int codigo) {
+        PaquetesBST packs = PaquetesBST.loadPaquetes();
+        packs.delete(codigo);
+        packs.savePaq();
+        return "success elminarPaquetes";
+    }
+    
+    
 }
