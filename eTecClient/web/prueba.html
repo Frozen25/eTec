@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de Grafos</title>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/almende/vis/master/dist/vis.css">
+    <script src="https://raw.githubusercontent.com/almende/vis/master/dist/vis.js"></script>
+</head>
+<body>
+    <div id="dibujo"></div>
+    <script>
+  // Arreglo de nodos
+  var n = [
+    {id: 1, label: 'Nodo 1'},
+    {id: 2, label: 'Nodo 2'},
+    {id: 3, label: 'Nodo 3'},
+  ];
+ 
+  // Arreglo de conexiones
+  var c = [
+    {from: 1, to: 2},
+    {from: 2, to: 3},
+    {from: 3, to: 1}
+  ];
+ 
+  // Creando el contenedor para el canvas
+  var contenedor = document.getElementById('dibujo');
+  var datos_dibujo = {
+    nodes: n,
+    edges: c
+  };
+  var config = {}; //Se puede personalizar
+  var dibujo = new vis.Network(contenedor, datos_dibujo, config);
+ 
+    </script>
+</body>
+</html>

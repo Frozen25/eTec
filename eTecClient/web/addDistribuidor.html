@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/Icon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main2.css">
+    <title>Agregar</title>
+</head>
+<body>
+    <div class="login__container">
+       <div class="login__top">
+          <img  class="login__img" src="./img/eTEC.png" alt="">
+          <h2 class="login__title">Agregar <span>Centro</span></h2>
+       </div>
+        
+        <form class="login__form" name="f1" method="get" action="add_item">
+            <input type="text" placeholder="&#128100; Nombre" required autofocus>
+            <input type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" placeholder="&#8962; Codigo" required autofocus>
+            <input type="text"  placeholder="&#8962; Ubicacion" required>
+            <input class="btn__submit" type="submit" value="Agregar">
+            
+        </form>
+    </div>
+</body>
+</html>

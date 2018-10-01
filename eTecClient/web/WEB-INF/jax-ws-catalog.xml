@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/eTecServer/Example?wsdl" uri="wsdl/localhost_8080/eTecServer/Example.wsdl"/>
+    <system systemId="http://localhost:8080/eTecServer/Example?xsd=1" uri="wsdl/localhost_8080/eTecServer/Example.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/eTecServer/Productos?wsdl" uri="wsdl/localhost_8080/eTecServer/Productos.wsdl"/>
+    <system systemId="http://localhost:8080/eTecServer/Productos?xsd=1" uri="wsdl/localhost_8080/eTecServer/Productos.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/eTecServer/Paquetes?wsdl" uri="wsdl/localhost_8080/eTecServer/Paquetes.wsdl"/>
+    <system systemId="http://localhost:8080/eTecServer/Paquetes?xsd=1" uri="wsdl/localhost_8080/eTecServer/Paquetes.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/eTecServer/Administradores?wsdl" uri="wsdl/localhost_8080/eTecServer/Administradores.wsdl"/>
+    <system systemId="http://localhost:8080/eTecServer/Administradores?xsd=1" uri="wsdl/localhost_8080/eTecServer/Administradores.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/eTecServer/Clientes?wsdl" uri="wsdl/localhost_8080/eTecServer/Clientes.wsdl"/>
+    <system systemId="http://localhost:8080/eTecServer/Clientes?xsd=1" uri="wsdl/localhost_8080/eTecServer/Clientes.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/eTecServer/ProduSearch?wsdl" uri="wsdl/localhost_8080/eTecServer/ProduSearch.wsdl"/>
+    <system systemId="http://localhost:8080/eTecServer/ProduSearch?xsd=1" uri="wsdl/localhost_8080/eTecServer/ProduSearch.xsd_1.xsd"/>
+</catalog>
